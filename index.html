@@ -3,57 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M. Galvão - Universo Literário</title>
+  <title>M. Galvão - Autora | Autista Avo Mundo</title>
   <style>
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 30px 20px;
-      background: #f8f5ff;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
       color: #2d2d2d;
-      line-height: 1.7;
+      line-height: 1.6;
+      background-image: url('fundo_mgalvao.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+    }
+    .overlay {
+      background: rgba(248, 245, 255, 0.92);
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
     }
     .cabecalho {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(90,42,130,0.15);
+    }
+    .foto-autora {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #5a2a82;
+      margin-bottom: 15px;
     }
     h1 {
       color: #5a2a82;
-      font-size: 26px;
-      margin-bottom: 15px;
+      font-size: 28px;
+      margin: 10px 0;
     }
-    .intro {
+    .subtitulo {
       font-size: 18px;
       color: #555;
+      font-style: italic;
+    }
+    .grade-livros {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
     }
     .livro {
       background: white;
-      padding: 25px;
-      margin-bottom: 30px;
       border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(90,42,130,0.1);
-      border-left: 4px solid #5a2a82;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(90,42,130,0.12);
+      border-left: 5px solid #5a2a82;
+      transition: transform 0.3s;
+    }
+    .livro:hover {
+      transform: translateY(-5px);
+    }
+    .livro img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+    .livro-info {
+      padding: 20px;
     }
     .livro h2 {
       color: #5a2a82;
-      margin: 0 0 12px 0;
-      font-size: 22px;
+      margin: 0 0 10px 0;
+      font-size: 20px;
     }
     .livro p {
-      margin: 0 0 20px 0;
+      margin: 0 0 15px 0;
       color: #666;
-      font-size: 16px;
+      font-size: 15px;
     }
     .botao {
       display: inline-block;
       background: #5a2a82;
       color: white;
-      padding: 12px 28px;
+      padding: 12px 24px;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 15px;
       transition: background 0.3s;
     }
     .botao:hover {
@@ -62,42 +103,90 @@
     .rodape {
       text-align: center;
       margin-top: 50px;
-      color: #888;
-      font-size: 14px;
+      padding: 20px;
+      color: #5a2a82;
+      font-size: 16px;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
     }
   </style>
 </head>
 <body>
-  <div class="cabecalho">
-    <h1>Autora de mundos fantásticos, histórias de superação e reflexões para a alma</h1>
-    <p class="intro">Bem-vindo ao meu universo literário 💜<br>Qual portal você abre primeiro?</p>
-  </div>
+  <div class="overlay">
+    <div class="container">
+      
+      <div class="cabecalho">
+        <img src="Retrato vibrante com óculos de aviador.png" alt="Magda Galvão" class="foto-autora">
+        <h1>M. Galvão</h1>
+        <p class="subtitulo">Autora de mundos fantásticos, histórias de superação e reflexões para a alma<br>
+        Cuidar · Acolher · Encantar 💜</p>
+      </div>
 
-  <div class="livro">
-    <h2>As Peças da Minha Mente</h2>
-    <p>Quando a realidade já não fazia sentido. Uma jornada de dor, amor e reencontro.</p>
-    <a class="botao" href="as-pecas-da-minha-mente.pdf" target="_blank">Ler Agora</a>
-  </div>
+      <div class="grade-livros">
+        
+        <div class="livro">
+          <img src="as pecas da minha mente capa.png" alt="As Peças da Minha Mente">
+          <div class="livro-info">
+            <h2>As Peças da Minha Mente</h2>
+            <p>Quando a realidade já não fazia sentido. Uma jornada de dor, amor e reencontro.</p>
+            <a class="botao" href="as_peças_da_minha_mente_-_quando_a_realidade_já_não_fazia_sentido_original.pdf" target="_blank">Ler Agora</a>
+          </div>
+        </div>
 
-  <div class="livro">
-    <h2>Ampulheta da Alma</h2>
-    <p>O tempo da alma não se mede em horas. Uma história sobre propósito e eternidade.</p>
-    <a class="botao" href="ampulheta-da-alma.pdf" target="_blank">Ler Agora</a>
-  </div>
+        <div class="livro">
+          <img src="ampulheta da alma capa.png" alt="Ampulheta da Alma">
+          <div class="livro-info">
+            <h2>Ampulheta da Alma</h2>
+            <p>O tempo da alma não se mede em horas. Uma história sobre propósito e eternidade.</p>
+            <a class="botao" href="ampulheta da alma eu ainda estou aqui original - Copia.pdf" target="_blank">Ler Agora</a>
+          </div>
+        </div>
 
-  <div class="livro">
-    <h2>Café com Deus</h2>
-    <p>Palavras para a alma, respiros para o coração. Duas jornadas, um só destino.</p>
-    <a class="botao" href="cafe-com-deus.pdf" target="_blank">Ler Agora</a>
-  </div>
+        <div class="livro">
+          <img src="Café com Deus capa.png" alt="Café com Deus">
+          <div class="livro-info">
+            <h2>Café com Deus</h2>
+            <p>Palavras para a alma, respiros para o coração. Duas jornadas, um só destino.</p>
+            <a class="botao" href="café_com_deus.pdf" target="_blank">Ler Agora</a>
+          </div>
+        </div>
 
-  <div class="livro">
-    <h2>Entre Mundos: A Escolhida</h2>
-    <p>Volume 1. Quando dois mundos colidem, uma escolhida desperta.</p>
-    <a class="botao" href="entre-mundos-a-escolhida.pdf" target="_blank">Ler Agora</a>
-  </div>
+        <div class="livro">
+          <img src="genetica.png" alt="A Verdade Que Busco">
+          <div class="livro-info">
+            <h2>A Verdade Que Busco</h2>
+            <p>Entre a ciência e a fé, uma busca pela verdade que habita em nós.</p>
+            <a class="botao" href="a verdade que busco - Copia.pdf" target="_blank">Ler Agora</a>
+          </div>
+        </div>
 
-  <div class="livro">
-    <h2>Entre Mundos: Os Ecos</h2>
-    <p>Volume 2. Os ecos do passado definem o futuro de todos os mundos.</p>
-    <a class="bot
+        <div class="livro">
+          <img src="young-adult-fantasy-book-cover-titled-entre-mundos.jpeg" alt="Entre Mundos: A Escolhida">
+          <div class="livro-info">
+            <h2>Entre Mundos: A Escolhida</h2>
+            <p>Volume 1. Quando dois mundos colidem, uma escolhida desperta.</p>
+            <a class="botao" href="Entre mundos a escolhida volume 1.pdf" target="_blank">Ler Agora</a>
+          </div>
+        </div>
+
+        <div class="livro">
+          <img src="image-1090762650797999.jpeg" alt="Entre Mundos: Os Ecos">
+          <div class="livro-info">
+            <h2>Entre Mundos: Os Ecos</h2>
+            <p>Volume 2. Os ecos do passado definem o futuro de todos os mundos.</p>
+            <a class="botao" href="Sagra entre mundos ecos volume 2.pdf" target="_blank">Ler Agora</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="rodape">
+        © 2026 M. Galvão - Autista Avo Mundo<br>
+        Escritos e vivências de uma escritora autista
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
