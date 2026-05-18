@@ -17,19 +17,20 @@
       background-position: center;
     }
     .overlay {
-      background: rgba(248, 245, 255, 0.92);
+      background: rgba(248, 245, 255, 0.75);
       min-height: 100vh;
       padding: 30px 20px;
     }
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .cabecalho {
       text-align: center;
       margin-bottom: 40px;
       padding: 30px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(90,42,130,0.15);
     }
@@ -43,7 +44,7 @@
     }
     h1 {
       color: #5a2a82;
-      font-size: 28px;
+      font-size: 32px;
       margin: 10px 0;
     }
     .subtitulo {
@@ -51,13 +52,50 @@
       color: #555;
       font-style: italic;
     }
-   .grade-livros {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-  padding: 0 10px;
-}
+    .grade-livros {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+      padding: 0 10px;
+    }
+    .livro {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(6px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(90,42,130,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .livro:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(90,42,130,0.2);
+    }
+    .livro img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+    .livro-info {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .livro-info h2 {
+      color: #5a2a82;
+      font-size: 20px;
+      margin: 0 0 10px 0;
+    }
+    .livro-info p {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
     .botao {
       display: inline-block;
       background: #5a2a82;
@@ -68,6 +106,8 @@
       font-weight: bold;
       font-size: 15px;
       transition: background 0.3s;
+      text-align: center;
+      align-self: flex-start;
     }
     .botao:hover {
       background: #4a1f6b;
@@ -79,8 +119,14 @@
       color: #5a2a82;
       font-size: 16px;
       font-weight: bold;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
       border-radius: 15px;
+    }
+    @media (max-width: 600px) {
+      .overlay { padding: 20px 15px; }
+      h1 { font-size: 26px; }
+      .livro img { height: 320px; }
     }
   </style>
 </head>
@@ -102,63 +148,4 @@
           <div class="livro-info">
             <h2>As Peças da Minha Mente</h2>
             <p>Quando a realidade já não fazia sentido. Uma jornada de dor, amor e reencontro.</p>
-            <a class="botao" href="as_peças_da_minha_mente_-_quando_a_realidade_já_não_fazia_sentido_original.pdf" target="_blank">Ler Agora</a>
-          </div>
-        </div>
-
-        <div class="livro">
-          <img src="ampulheta da alma capa.png" alt="Ampulheta da Alma">
-          <div class="livro-info">
-            <h2>Ampulheta da Alma</h2>
-            <p>O tempo da alma não se mede em horas. Uma história sobre propósito e eternidade.</p>
-            <a class="botao" href="ampulheta da alma eu ainda estou aqui original - Copia.pdf" target="_blank">Ler Agora</a>
-          </div>
-        </div>
-
-        <div class="livro">
-          <img src="Café com Deus capa.png" alt="Café com Deus">
-          <div class="livro-info">
-            <h2>Café com Deus</h2>
-            <p>Palavras para a alma, respiros para o coração. Duas jornadas, um só destino.</p>
-            <a class="botao" href="café_com_deus.pdf" target="_blank">Ler Agora</a>
-          </div>
-        </div>
-
-        <div class="livro">
-          <img src="genetica.png" alt="A Verdade Que Busco">
-          <div class="livro-info">
-            <h2>A Verdade Que Busco</h2>
-            <p>Entre a ciência e a fé, uma busca pela verdade que habita em nós.</p>
-            <a class="botao" href="a verdade que busco - Copia.pdf" target="_blank">Ler Agora</a>
-          </div>
-        </div>
-
-        <div class="livro">
-          <img src="young-adult-fantasy-book-cover-titled-entre-mundos.jpeg" alt="Entre Mundos: A Escolhida">
-          <div class="livro-info">
-            <h2>Entre Mundos: A Escolhida</h2>
-            <p>Volume 1. Quando dois mundos colidem, uma escolhida desperta.</p>
-            <a class="botao" href="Entre mundos a escolhida volume 1.pdf" target="_blank">Ler Agora</a>
-          </div>
-        </div>
-
-        <div class="livro">
-          <img src="image-1090762650797999.jpeg" alt="Entre Mundos: Os Ecos">
-          <div class="livro-info">
-            <h2>Entre Mundos: Os Ecos</h2>
-            <p>Volume 2. Os ecos do passado definem o futuro de todos os mundos.</p>
-            <a class="botao" href="Sagra entre mundos ecos volume 2.pdf" target="_blank">Ler Agora</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="rodape">
-        © 2026 M. Galvão - Autista Avo Mundo<br>
-        Escritos e vivências de uma escritora autista
-      </div>
-
-    </div>
-  </div>
-</body>
-</html>
+            <a class="botao" href="as_peças_da_minha_mente_-_quando_a_realidade_já_não_fazia_sentido_original.pdf"
