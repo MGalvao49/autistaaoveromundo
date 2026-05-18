@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Georgia', serif;
+            background-color: #f3e5f5;
             background: url('fundo_mgalvao.png') no-repeat center center fixed;
             background-size: cover;
             color: #333;
@@ -76,6 +77,11 @@
         .assinatura {
             width: 150px;
             margin-top: 20px;
+            animation: pular 2s infinite ease-in-out;
+        }
+        @keyframes pular {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
     </style>
 </head>
@@ -83,44 +89,4 @@
     <div class="container">
         <img src="foto_autora.png" alt="M. Galvão" class="autora">
         <h1>M. Galvão</h1>
-        <p><em>Escritos e vivências de uma escritora autista</em></p>
-        
-        <h2>Meus Livros</h2>
-        <div class="livros">
-            <div class="livro">
-                <img src="capa_entre_mundos_1.png" alt="Entre Mundos 1">
-                <a href="entre_mundos_1.pdf" target="_blank">Ler PDF</a>
-            </div>
-            <div class="livro">
-                <img src="capa_sagra.png" alt="Sagra">
-                <a href="sagra.pdf" target="_blank">Ler PDF</a>
-            </div>
-            <div class="livro">
-                <img src="capa_ampulheta.png" alt="Ampulheta da Alma">
-                <a href="ampulheta_da_alma.pdf" target="_blank">Ler PDF</a>
-            </div>
-            <div class="livro">
-                <img src="capa_pecas_da_minha_mente.png" alt="Peças da Minha Mente">
-                <a href="pecas_da_minha_mente.pdf" target="_blank">Ler PDF</a>
-            </div>
-            <div class="livro">
-                <img src="capa_verdade_que_busco.png" alt="A Verdade Que Busco">
-                <a href="a_verdade_que_busco.pdf" target="_blank">Ler PDF</a>
-            </div>
-            <div class="livro">
-                <img src="capa_cafe_com_deus.png" alt="Café com Deus">
-                <a href="cafe_com_deus.pdf" target="_blank">Ler PDF</a>
-            </div>
-        </div>
-
-        <div class="contato">
-            <h2>Fale Comigo</h2>
-            <a href="https://wa.me/5531997795724" target="_blank">WhatsApp</a>
-            <a href="mailto:mgalvaoescritora@gmail.com">Email</a>
-            <a href="https://www.youtube.com/@MGalvaoescritora" target="_blank">YouTube</a>
-        </div>
-
-        <img src="assinatura_coelhinho.png" alt="Assinatura" class="assinatura">
-    </div>
-</body>
-</html>
+        <p><em>Escritos e vivências de uma escritora autista</em></p
