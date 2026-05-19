@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+     <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -64,6 +65,62 @@
             border-radius: 5px;
             font-weight: bold;
         }
+        
+        /* SEÇÃO DOAÇÃO PIX */
+        .doacao {
+            margin: 50px 0;
+            padding: 30px 20px;
+            background: rgba(142, 68, 173, 0.08);
+            border: 2px dashed #8e44ad;
+            border-radius: 15px;
+        }
+        .doacao h2 {
+            margin-top: 0;
+            color: #6a4c93;
+        }
+        .doacao p {
+            font-size: 1.1em;
+            color: #444;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        .qrcode-pix {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border: 5px solid white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(106,76,147,0.25);
+            display: block;
+        }
+        .chave-pix {
+            display: inline-block;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            color: #6a4c93;
+            font-weight: bold;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .copiar-pix {
+            display: block;
+            margin: 15px auto 0;
+            padding: 10px 25px;
+            background: #6a4c93;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-size: 15px;
+        }
+        .copiar-pix:hover {
+            background: #8e44ad;
+        }
+        
         .contato {
             margin: 40px 0 20px 0;
         }
@@ -85,6 +142,12 @@
         @keyframes pular {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 20px 15px; margin: 10px; }
+            h1 { font-size: 2em; }
+            .livro img { height: 300px; }
+            .qrcode-pix { width: 180px; height: 180px; }
         }
     </style>
 </head>
@@ -122,6 +185,15 @@
             </div>
         </div>
 
+        <!-- SEÇÃO DOAÇÃO PIX -->
+        <div class="doacao">
+            <h2>Apoie Meu Trabalho 💜</h2>
+            <p>Se meus escritos tocaram sua alma, você pode me ajudar a continuar criando mundos e acolhendo corações através da literatura.</p>
+            <img src="qrcode-pix.png" alt="QR Code PIX" class="qrcode-pix">
+            <div class="chave-pix">PIX: 31988453640</div>
+            <button class="copiar-pix" onclick="copiarPix()">Copiar Chave PIX</button>
+        </div>
+
         <div class="contato">
             <h2>Fale Comigo</h2>
             <a href="https://wa.me/5531997795724" target="_blank">WhatsApp</a>
@@ -131,5 +203,12 @@
 
         <img src="assinatura_coelhinho.png" alt="Assinatura" class="assinatura">
     </div>
+
+    <script>
+        function copiarPix() {
+            navigator.clipboard.writeText('31988453640');
+            alert('Chave PIX copiada! 💜 Gratidão pelo seu apoio!');
+        }
+    </script>
 </body>
 </html>
