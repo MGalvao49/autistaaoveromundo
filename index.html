@@ -210,8 +210,9 @@
     <div class="secao">
         <h2>💖 Apoie com PIX</h2>
         <div id="qrcode"></div>
-        <p class="pix-chave">Chave: 118.250.986-03</p>
+        <p class="pix-chave">Chave CPF: 118.250.986-03</p>
         <button class="btn" onclick="copiarPix()">Copiar Chave PIX</button>
+        <p style="margin-top:15px; color:#666;">M GALVAO ESCRITORA</p>
     </div>
 
     <div class="secao">
@@ -239,8 +240,8 @@
     </footer>
 
     <script>
-        // Gerar QR Code PIX
-        const qrcode = new QRCode(document.getElementById("qrcode"), {
+        // QR Code PIX com seu CPF 11825098603
+        new QRCode(document.getElementById("qrcode"), {
             text: "00020126580014br.gov.bcb.pix0136118250986035204000053039865802BR5925M GALVAO ESCRITORA6009SAO PAULO62070503***6304",
             width: 200,
             height: 200,
@@ -253,7 +254,7 @@
             alert('Chave PIX copiada! 💖');
         }
 
-        // Capítulos dos livros - COLOQUE O TEXTO REAL AQUI
+        // TEXTOS DOS CAPÍTULOS - SUBSTITUI AQUI
         const capitulos = {
             ampulheta: {
                 titulo: "Ampulheta da Alma",
