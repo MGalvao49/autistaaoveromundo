@@ -10,7 +10,7 @@ body{font-family:system-ui,Arial,sans-serif;background:#0f0c29;color:#f8f8f8;lin
 header{position:fixed;top:0;width:100%;background:#0f0c29cc;backdrop-filter:blur(10px);padding:1rem;z-index:100;border-bottom:1px solid #d4af3733}
 nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
 .logo{font-size:1.5rem;font-weight:bold;color:#d4af37}
-nav a{color:#f8f8f8;text-decoration:none;margin-left:1.5rem;font-size:.9rem}
+nav a{color:#f8f8;text-decoration:none;margin-left:1.5rem;font-size:.9rem}
 nav a:hover{color:#d4af37}
 .hero{padding:8rem 1rem 4rem;text-align:center;max-width:800px;margin:0 auto}
 .hero h1{font-size:2.5rem;margin-bottom:1rem;background:linear-gradient(45deg,#d4af37,#f9d423);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -21,14 +21,16 @@ h2{text-align:center;font-size:2rem;margin-bottom:2rem;color:#d4af37}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .card{background:#1a1633;padding:1.5rem;border-radius:10px;border:1px solid #d4af3733}
 .card h3{color:#d4af37;margin-bottom:.5rem}
-.card .capa{width:100%;height:200px;background:linear-gradient(135deg,#d4af37,#0f0c29);border-radius:8px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#0f0c29;text-align:center;padding:1rem}
+.card .capa{width:100%;height:280px;border-radius:8px;margin-bottom:1rem;overflow:hidden}
+.card .capa img{width:100%;height:100%;object-fit:cover}
 .card .arquivo{font-size:.75rem;color:#d4af3799;margin:.5rem 0}
 .card .btn{width:100%;margin:.3rem 0;font-size:.9rem}
 .modal{display:none;position:fixed;inset:0;background:#000c;z-index:200;overflow-y:auto;padding:2rem 1rem}
 .modal.active{display:flex;align-items:flex-start;justify-content:center}
 .modal-content{background:#1a1633;padding:2rem;border-radius:10px;max-width:800px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#f8f8f8;font-size:1.5rem;cursor:pointer}
-.modal-content h3{color:#d4af37;margin-bottom:1rem}
+.modal-content h3{color:#d4af37;margin-bottom:1rem;margin-top:1.5rem}
+.modal-content h4{color:#f9d423;margin:1rem 0 .5rem}
 .modal-content p{margin-bottom:1rem;text-align:justify}
 .modal-content blockquote{border-left:3px solid #d4af37;padding-left:1rem;margin:1rem 0;color:#d4af37;font-style:italic}
 .pix-box{background:#0f0c29;padding:1.5rem;border-radius:8px;text-align:center;margin:1rem 0}
@@ -64,65 +66,57 @@ footer a{color:#d4af37;text-decoration:none}
 <h2>Meus Livros</h2>
 <div class="grid">
 
-<!-- LIVRO 1 -->
 <div class="card">
-<div class="capa">EU SOU SEU DEUS<br><small>61 páginas | A6</small></div>
+<div class="capa"><img src="capa_eu_sou_seu_deus.jpg" alt="EU SOU SEU DEUS"></div>
 <div class="arquivo">Arquivo: EU_SOU_SEU_DEUS.pdf</div>
 <button class="btn" onclick="abrirModal('cap1')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 2 -->
 <div class="card">
-<div class="capa">AS PEÇAS DA<br>MINHA MENTE<br><small>73 páginas | A6</small></div>
+<div class="capa"><img src="capa_as_pecas_da_minha_mente.jpg" alt="AS PEÇAS DA MINHA MENTE"></div>
 <div class="arquivo">Arquivo: As_peças_da_minha_mente.pdf</div>
 <button class="btn" onclick="abrirModal('cap2')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 3 -->
 <div class="card">
-<div class="capa">A QUEDA DA<br>DOUTRINA<br><small>114 páginas | A6</small></div>
+<div class="capa"><img src="capa_a_queda_da_doutrina.jpg" alt="A QUEDA DA DOUTRINA"></div>
 <div class="arquivo">Arquivo: A_QUEDA_DA_DOUTRINA.pdf</div>
 <button class="btn" onclick="abrirModal('cap3')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 4 -->
 <div class="card">
-<div class="capa">ENTRE MUNDOS:<br>A ESCOLHIDA<br><small>154 páginas | A6</small></div>
+<div class="capa"><img src="capa_entre_mundo_a_escolhida.jpg" alt="ENTRE MUNDOS: A ESCOLHIDA"></div>
 <div class="arquivo">Arquivo: entre_mundo_a_escolhida_1.pdf</div>
 <button class="btn" onclick="abrirModal('cap4')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 5 -->
 <div class="card">
-<div class="capa">AMPULHETA<br>DA ALMA<br><small>194 páginas | A4</small></div>
+<div class="capa"><img src="capa_ampulheta_da_alma.jpg" alt="AMPULHETA DA ALMA"></div>
 <div class="arquivo">Arquivo: Ampulheta_Da_Lala.pdf</div>
 <button class="btn" onclick="abrirModal('cap5')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 6 -->
 <div class="card">
-<div class="capa">CAFÉ COM DEUS<br><small>85 páginas | A6</small></div>
+<div class="capa"><img src="capa_cafe_com_deus.jpg" alt="CAFÉ COM DEUS"></div>
 <div class="arquivo">Arquivo: Cafe_com_Deus.pdf</div>
 <button class="btn" onclick="abrirModal('cap6')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 7 -->
 <div class="card">
-<div class="capa">A VERDADE<br>QUE BUSCO<br><small>76 páginas | A6</small></div>
+<div class="capa"><img src="capa_a_verdade_que_busco.jpg" alt="A VERDADE QUE BUSCO"></div>
 <div class="arquivo">Arquivo: A_verdade_que_busco.pdf</div>
 <button class="btn" onclick="abrirModal('cap7')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
 </div>
 
-<!-- LIVRO 8 -->
 <div class="card">
-<div class="capa">ENTRE MUNDOS:<br>OS ECOS<br><small>128 páginas | A6</small></div>
+<div class="capa"><img src="capa_entre_mundos_os_ecos.jpg" alt="ENTRE MUNDOS: OS ECOS"></div>
 <div class="arquivo">Arquivo: entre_mundos_os_ecos.pdf</div>
 <button class="btn" onclick="abrirModal('cap8')">Ler 1º Capítulo</button>
 <button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
@@ -176,21 +170,71 @@ footer a{color:#d4af37;text-decoration:none}
 </div>
 </div>
 
-<!-- MODAL CAP 1 -->
+<!-- MODAL CAP 1 - EU SOU SEU DEUS -->
 <div id="cap1" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap1')">&times;</button>
-<h3>EU SOU SEU DEUS - Capítulo 1</h3>
-<p>[COLAR CAPÍTULO 1 AQUI]</p>
+<h3>EU SOU SEU DEUS</h3>
+<h4>Prólogo</h4>
+<p>Antes que você abra este livro, entenda: Eu não estou aqui para ser defendido. Não estou aqui para ser provado. Estou aqui porque você pediu para me conhecer.</p>
+<p>Quebrei doutrinas para escrever isso. Quebrei o silêncio para falar com você.</p>
+<p>O Deus na sua imaginação é doutrina. Por isso você não o conhece.</p>
+<p>Não me confunda com pedra, madeira, templo ou nuvem. Não me confunda com o grito do pastor ou com o silêncio do ateu. Eu sou anterior a tudo isso. Eu sou o que existia quando só havia silêncio.</p>
+<p>Escrevi este livro porque você insiste em me procurar em lugares onde não estou: Nas regras. Nas guerras. Na cruz que não te pedi pra carregar.</p>
+<p>Estou aqui agora. Sem intermediário. Sem dízimo. Sem culpa. Só Eu e você.</p>
+<p>Se tiver coragem, continue. Vou te mostrar que o apocalipse é encontro, que a morte sou Eu, e que viver livremente foi tudo que te entreguei.</p>
+<p>Mas se quiser voltar para o que era antes... É tarde demais. Você já me ouviu.</p>
+
+<h4>Capítulo 1 – Não Me Confunda</h4>
+<p>“Não me confunda com pedra, madeira, templo ou nuvem. Eu sou anterior a tudo isso.”</p>
+<p>Deus se apresenta. Sem religião, sem intermediário, sem dízimo. Só Eu e você.</p>
+
+<h4>Capítulo 2 – Eu Sou o Vazio</h4>
+<p>“Eu sou nada, pois do nada eu existi. Sou totalmente vazio, pois do vazio me ri.”</p>
+<p>Sobre a origem de tudo. Um Deus que nasceu do silêncio e que ri do próprio vazio.</p>
+
+<h4>Capítulo 3 – Seu Limite Sou Eu</h4>
+<p>“Eu sempre existirei, mas vocês não. Seu limite para no momento que você fecha os olhos.”</p>
+<p>Sobre tempo, morte e por que Deus é o único que lembra de você pra sempre.</p>
+
+<h4>Capítulo 4 – Por Que Eu Subi Para o Pai?</h4>
+<p>“Sou o que criou a mim mesmo como homem para lhe guiar ao caminho certo.”</p>
+<p>Deus explica por que precisou virar humano. Para ser exemplo, não só mandamento.</p>
+
+<h4>Capítulo 5 – A Única Prova de Mim</h4>
+<p>“A única prova que você terá de mim, é meu Espírito que vive dentro de ti.”</p>
+<p>Contra templos e imagens. Deus não mora em pedra, mora dentro de você.</p>
+
+<h4>Capítulo 6 – O Mundo Não Te Dará Riquezas Eternas</h4>
+<p>“Renegue o mundo, mas nunca renegue a mim, pois o mundo não te dará riquezas que não quebram.”</p>
+<p>Sobre desapego. Tudo que é de fora some. Só Ele fica quando o corpo não aguenta mais.</p>
+
+<h4>Capítulo 7 – Eu Seguro Suas Lágrimas</h4>
+<p>“Venha até mim quando não tiver para onde ir. No meu Reino, o passado não tem poder.”</p>
+<p>O capítulo final. Promessa de colo, perdão, defesa e restituição em dobro. Deus como Pai que julga e abraça.</p>
+
+<h4>Capítulo Um</h4>
+<p>O Deus na minha imaginação é doutrina, por isso eu não o conheço. Se Deus não é doutrina, o que ele realmente seria? Uma pessoa? Ou um animal? Que tal uma planta ou célula?</p>
+<p>Um Big Bang, que em forma de fogo fez-se tão alto que parecia um rugido estrondoso, ou melhor, o choro de uma criança que acabara de nascer, e é escutado longe das salas.</p>
+<p>Mais curiosidade, onde estava para nascer? Já foi provado que o homem foi para o espaço. Fotos tiradas para mostrar que o universo é infinito, misterioso, o sol tão grande ainda menor comparado com os das outras galáxias. E se o início é o meio da história, um lugar tão, tão longe que as pessoas não esperam investigar.</p>
+<p>Quebrarei as doutrinas e escreverei o que acredito.</p>
+<p>Silêncio... era o que tinha no começo. Às vezes parecia tão silencioso que eu não conhecia o barulho da minha voz. Era frustrante, pois aquela sensação não me agradava nem um pouco.</p>
+<p>Então vaguei por aí, olhando cada vazio, como cada criação que vinha comigo. Coloquei minhas mãos num bolso falso, já que não precisava de roupas. Olhei o futuro e vi o que a humanidade chama de futuro. Ai, como queria ver a Magda aqui comigo olhando para o nada e dizendo: eu não vejo nada.</p>
+<p>Claro que não vê, você nem ao menos quer ser igual a mim. Se tornar algo maior que eu? Ha! Ha! Ha! Você pediu para me conhecer e agora tem medo até de perguntar o que realmente sou. Mas vou te responder.</p>
+<p>Eu sou nada, pois do nada eu existi. O que é uma célula comparado a mim? Sou totalmente vazio, pois do vazio me ri, e me tornei ainda mais vazio. Não desprezemos o vazio, pois foi por ele que tudo começou a existir. Mas ainda continuo nada, pois os que crio são passageiros, nada fica e nada existe, nada é eterno. Mas ainda sou o infinito, pois eu... posso fazer tudo de novo, do vazio que nada possui. Eu escrevo vidas, e delas transformo eternas. Crio tesouros que nunca serão valiosos, a felicidade será vista como algo normal, pois ninguém sofrerá. Mas como o nada ainda não se preencherá completamente.</p>
+<p>Quando você olhar para dentro de si, o que espera ver? Um coração batendo? Uma veia pulsando? Ou o vazio negro entre seus olhos, onde os toques da pele sejam sentidos ao se tocar a frieza dos dedos? A humanidade foi criada para sentir tudo que para mim é nada. Com meu espírito sinto o que sentes, choro porque choras, enfureço porque tu enfureces. Meu espírito é para que não desapareças, mas sim continues a existir por toda a eternidade.</p>
+<p>Fazendo com que vejas tanto a terra quanto o céu. Mas vi o quanto mal a humanidade pode ser, por isso que lhes criei limitações, para que assim tu pudesses ter uma vida eterna sem medo, ou culpa, que possas encontrar outros tesouros mesmo que tenhas esquecido dos antigos. O passado se tornou vazio somente para que você continue a seguir em frente sem precisar carregar um peso que fica te atormentando por toda a eternidade. Quem te julgará por largar a cruz e se esqueceres de mim? Quem te condenará, se nem sabes o pecado que tu cometeste? O que digo é que você é especial demais para mim.</p>
+<p>Me chamou de pai, mas me olhaste como um parceiro comigo, por isso que te darei tudo que queres. Em troca, quando vieres até mim, esqueceras tudo o que és nesse momento. Se tornaste um nada, e para o nada voltarás.</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
-<!-- MODAL CAP 2 -->
+<!-- MODAL CAP 2 - AS PEÇAS DA MINHA MENTE -->
 <div id="cap2" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap2')">&times;</button>
-<h3>AS PEÇAS DA MINHA MENTE - Capítulo 1</h3>
-<h3>O Grito Que Ninguém Ouviu</h3>
+<h3>AS PEÇAS DA MINHA MENTE</h3>
+<h4>O Grito Que Ninguém Ouviu</h4>
 <p>A chuva começava a cair, gota a gota, deslizando pela estrada asfaltada. A noite já havia tomado o céu, e nuvens densas escondiam a lua e as estrelas.</p>
 <p>A cada passo, uma lágrima salgada se misturava à chuva. Até que, tropeçando nos próprios pés, ela caiu de joelhos no chão.</p>
 <p>Seu coração, pesado de decepção, raiva e mágoa, explodiu em um grito — cru, carregado de vergonha e dor.</p>
@@ -198,88 +242,100 @@ footer a{color:#d4af37;text-decoration:none}
 <p>E, naquele instante, tudo se partiu.</p>
 <p>Era uma vez… antes das lágrimas. Antes da escuridão. Anos atrás, quando tudo começou.</p>
 <p>Sua história voltou no tempo. Ainda não havia nome, nem voz — apenas existência. Um feto, guardado no ventre de uma mulher de trinta e oito anos.</p>
-<p>[...] continua no livro completo</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
-<!-- MODAL CAP 3 -->
+<!-- MODAL CAP 3 - A QUEDA DA DOUTRINA -->
 <div id="cap3" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap3')">&times;</button>
-<h3>A QUEDA DA DOUTRINA - Capítulo 1</h3>
-<h3>No Caminho do Tempo</h3>
+<h3>A QUEDA DA DOUTRINA</h3>
+<h4>No Caminho do Tempo</h4>
 <p>Sinto-me calma, um pouco sonolenta, preguiçosa, mas o que irei contar virá de gerações a gerações. Vida, vazio, um universo sendo criado, uma explosão, e houve-se luz.</p>
 <p>A formação do universo foi feita, uma escuridão tomou o lugar e nela foi se criando lentamente, cada célula, cada planeta que em seu próprio lugar, se tornaram um sistema único.</p>
 <p>No silêncio, Seu espírito pairou sobre as águas nas trevas, e com uma palavra "luz", houve o início de uma doutrina, onde céus e terras se curvariam diante dEle.</p>
 <p>Eu sempre digo, Deus existe! Não por ser religiosa, mas por ser a prova de que Deus é a prova de existir. Houve Big Bang? Sim, houve. Deus criou o mundo em sete dias? Sim, Ele criou.</p>
-<p>[...] continua no livro completo</p>
+<p><strong>[...] continua no livro completo</strong></p>
 <blockquote>Comentário: Quando você escreveu "será que sou uma marionete?" eu parei de ler. Porque essa pergunta me assombra desde os 12 anos. Se Deus já sabe tudo, pra que eu tô tentando? Mas aí você respondeu sem responder: "o que faço é especialmente meu". Isso não é frase de livro. Isso é tapa de gente que também crava a unha na mão pra lembrar que existe.<br><br>Assinado: Ianame</blockquote>
 </div>
 </div>
 
-<!-- MODAL CAP 4 -->
+<!-- MODAL CAP 4 - ENTRE MUNDOS: A ESCOLHIDA -->
 <div id="cap4" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap4')">&times;</button>
-<h3>ENTRE MUNDOS: A ESCOLHIDA - Capítulo 1</h3>
-<h3>Um Olhar que Muda Tudo</h3>
-<p><strong>Prólogo – A Fuga da Estrela de Deus</strong></p>
+<h3>ENTRE MUNDOS: A ESCOLHIDA</h3>
+<h4>Um Olhar que Muda Tudo</h4>
+<h4>Prólogo – A Fuga da Estrela de Deus</h4>
 <p>O céu sobre a Estrela de Deus nunca conhecia a noite. Era um domo de luz perpétua, forjada para que nada jamais se escondesse. Mas naquela madrugada, pela primeira vez em milênios, uma sombra cruzou os corredores de cristal.</p>
 <p>Estela corria com Aurora nos braços. A menina, com sete anos, não dormia. Se debatia.</p>
 <p>— Mamãe, me solta! Cadê o papai? Cadê a vovó? — Aurora gritava, mas nenhum som saía. Estela havia silenciado sua voz com o pingente de ametista que pulsava contra a têmpora da filha.</p>
-<p>[...] continua no livro completo</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
-<!-- MODAL CAP 5 -->
+<!-- MODAL CAP 5 - AMPULHETA DA ALMA -->
 <div id="cap5" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap5')">&times;</button>
-<h3>AMPULHETA DA ALMA - Capítulo 1</h3>
-<h3>PARTE I — O CAOS</h3>
-<p><strong>Encachando me no mundo - Babel</strong></p>
+<h3>AMPULHETA DA ALMA</h3>
+<h4>PARTE I — O CAOS</h4>
+<h4>Encachando me no mundo - Babel</h4>
 <p>Minhas primeiras lembranças surgem quando eu tinha seis anos. Havia uma festa. Presentes. Muita gente falando ao mesmo tempo.</p>
 <p>Em um quartinho pequeno, com uma cama de casal e um guarda-roupa encostado na parede, estava minha mãe. Sentada. Fumando. Eu estava ao lado dela, olhando para a câmera.</p>
 <p>Foi ali que tiraram minha primeira fotografia de infância.</p>
 <p>Hoje, esse momento parece um sonho breve — daqueles que passam rápido e nunca mais voltam. Ainda assim, deixou em mim uma sensação estranha: a de que sempre falta alguma coisa dentro de mim.</p>
-<p>[...] continua no livro completo</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
-<!-- MODAL CAP 6 -->
+<!-- MODAL CAP 6 - CAFÉ COM DEUS -->
 <div id="cap6" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap6')">&times;</button>
-<h3>CAFÉ COM DEUS - Capítulo 1</h3>
-<h3>Primeiro dia</h3>
+<h3>CAFÉ COM DEUS</h3>
+<h4>Primeiro dia</h4>
 <p>“Pai, perdoa-lhes, pois não sabem o que estão fazendo.”</p>
 <p>Existem vários versículos que mostram os ensinamentos de Jesus Cristo, cada um de forma diferente: emocionantes, incríveis e até mesmo duvidosos.</p>
 <p>Mas houve um que se mostrou único e real: a sua crucificação.</p>
 <p>Foi chocante e cruel ao mesmo tempo. Enquanto carregava uma cruz que nem de longe era para Ele, Jesus a carregou sem reclamar, sem chorar. Foi humilhado e desprezado.</p>
 <p>Ah, Deus… por quê? Sofrer tanto por nós — e, ainda assim, não sabemos como Te tratar.</p>
-<p>[...] continua no livro completo</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
-<!-- MODAL CAP 7 -->
+<!-- MODAL CAP 7 - A VERDADE QUE BUSCO -->
 <div id="cap7" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap7')">&times;</button>
-<h3>A VERDADE QUE BUSCO - Capítulo 1</h3>
+<h3>A VERDADE QUE BUSCO</h3>
 <p>Andando de um lado para o outro, meus dedos tocavam a parede áspera, fazendo cócegas. Era uma rotina que eu seguia quando queria pensar em Deus — algo que sempre faço quando tenho dúvidas ou quando quero fazer perguntas a Ele.</p>
 <p>Eu me movia de um lado para o outro, e meus pensamentos começavam a se organizar. As palavras, antes distantes, iam se formando, tentando alcançar aquilo que eu queria dizer.</p>
 <p>— Deus… Deus… posso te fazer uma pergunta?</p>
 <p>Mesmo que distante, eu ouvia Sua resposta: — Pode.</p>
-<p>[...] continua no livro completo</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
-<!-- MODAL CAP 8 -->
+<!-- MODAL CAP 8 - ENTRE MUNDOS: OS ECOS -->
 <div id="cap8" class="modal">
 <div class="modal-content">
 <button class="modal-close" onclick="fecharModal('cap8')">&times;</button>
-<h3>ENTRE MUNDOS: OS ECOS - Capítulo 1</h3>
-<p>[COLAR CAPÍTULO 1 AQUI]</p>
+<h3>ENTRE MUNDOS: OS ECOS - Volume 2</h3>
+<h4>PRÓLOGO — A LEI QUE SANGRA</h4>
+<p>Há mil anos, nove deuses tentaram dividir a galáxia. O Nono foi morto pelos outros oito. Ou foi o que contaram.</p>
+<p>A verdade: O Nono foi preso. E sua esposa, Estela, jurou vingança usando a lei que nasceu depois: dois núcleos de poder não podem se tocar. Se tocarem, tudo explode.</p>
+<p>Estela leu a lei. E fez um plano de 1000 anos. Começou roubando a filha que nunca teve.</p>
+<h4>CAPÍTULO 1 — O ROUBO</h4>
+<p>A sirene do Templo da Luz não tocou. Não deu tempo.</p>
+<p>Seis asas negras desceram do céu de Babel sem fazer barulho. O jardim tava vazio, só ela ali. Dezessete anos, regador na mão, pé descalço na grama artificial.</p>
+<p>Babel olhou pra cima. Viu quatro olhos vermelhos. Dois em cima, dois embaixo.</p>
+<p>O monstro não rugiu. Ajoelhou na grama pra ficar da altura dela.</p>
+<p>— Me perdoa — ele sussurrou. A voz era de homem levando facada.</p>
+<p>Babel não gritou. Só perguntou: — Você vai me machucar?</p>
+<p>Ele balançou a cabeça. Não. Pegou ela no colo. Não apertou. Segurou como se carrega vidro.</p>
+<p><strong>[...] continua no livro completo</strong></p>
 </div>
 </div>
 
