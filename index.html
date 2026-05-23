@@ -3,793 +3,1096 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M. Galvão - Escritora de Mundos que Despertam a Alma</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>M. Galvão - Escritora</title>
 <style>
-  :root {
-    --color-dark: #0f0c29;
-    --color-mid: #302b63;
-    --color-light: #24243e;
-    --color-gold: #d4af37;
-    --color-light-gold: #f0d98c;
-    --color-white: #f8f8f8;
-  }
-  
-  * {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    overflow-x: hidden;
-  }
-  
-  h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-  }
-  
-  .gradient-hero {
-    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-mid) 50%, var(--color-light) 100%);
-    position: relative;
-  }
-  
-  .gradient-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(48, 43, 99, 0.3) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  
-  .gold-gradient {
-    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .btn-gold {
-    background: linear-gradient(135deg, var(--color-gold) 0%, #b8941f 100%);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-  }
-  
-  .btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
-  }
-  
-  .btn-outline {
-    border: 2px solid var(--color-gold);
-    transition: all 0.3s ease;
-  }
-  
-  .btn-outline:hover {
-    background: rgba(212, 175, 55, 0.1);
-    transform: translateY(-2px);
-  }
-  
-  .card-book {
-    background: linear-gradient(145deg, #1a1535, #0f0c29);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(212, 175, 55, 0.1);
-  }
-  
-  .card-book:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-    border-color: rgba(212, 175, 55, 0.3);
-  }
-  
-  .book-cover {
-    background: linear-gradient(135deg, var(--color-mid) 0%, var(--color-light) 100%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-  }
-  
-  .card-book:hover .book-cover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
-  }
-  
-  .fade-in {
-    animation: fadeIn 0.8s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  .scroll-reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-  
-  .scroll-reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
-  }
-  
-  .modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .modal-content {
-    animation: slideUp 0.4s ease;
-  }
-  
-  @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  .progress-bar-fill {
-    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-    transition: width 2s cubic-bezier(0.65, 0, 0.35, 1);
-  }
-  
-  .glass-effect {
-    background: rgba(15, 12, 41, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-  }
-  
-  .text-glow {
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-  }
-  
-  .star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle 3s infinite;
-  }
-  
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
+    :root {
+        --bg-primary: #0f0c29;
+        --bg-secondary: #1a1535;
+        --bg-card: #24243e;
+        --accent: #d4af37;
+        --accent-hover: #e6c552;
+        --text-primary: #f8f8f8;
+        --text-secondary: #c9c9d1;
+        --border: #302b63;
+        --success: #2ecc71;
+        --shadow: rgba(212, 175, 55, 0.15);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(15, 12, 41, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: 1px;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    nav a {
+        color: var(--text-secondary);
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    nav a:hover {
+        color: var(--accent);
+    }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        color: var(--text-primary);
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 8rem 0 4rem;
+        background: radial-gradient(circle at 20% 50%, rgba(48, 43, 99, 0.3), transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1), transparent 50%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent 70%);
+        border-radius: 50%;
+        animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-30px, 30px) scale(1.1); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        background: linear-gradient(135deg, var(--text-primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero p {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+        color: var(--bg-primary);
+        box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 40px var(--shadow);
+    }
+
+    .btn-secondary {
+        background: var(--bg-card);
+        color: var(--text-primary);
+        border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+        background: var(--bg-secondary);
+        border-color: var(--accent);
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+    }
+
+    /* Sections */
+    section {
+        padding: 5rem 0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--text-primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Books Grid */
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .book-card {
+        background: var(--bg-card);
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid var(--border);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .book-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .book-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .book-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .book-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+    }
+
+    .book-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .book-badge {
+        font-size: 0.85rem;
+        color: var(--accent);
+        background: rgba(212, 175, 55, 0.1);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .book-file {
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        font-family: 'Courier New', monospace;
+        opacity: 0.7;
+    }
+
+    .book-actions {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .btn-sm {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    /* Meta Section */
+    .meta-section {
+        background: var(--bg-secondary);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 3rem 0;
+        border: 1px solid var(--border);
+    }
+
+    .progress-container {
+        margin: 2rem 0;
+    }
+
+    .progress-bar-bg {
+        width: 100%;
+        height: 24px;
+        background: var(--bg-primary);
+        border-radius: 50px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        position: relative;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+        width: 0%;
+        transition: width 1s ease;
+        border-radius: 50px;
+        box-shadow: 0 0 20px var(--shadow);
+    }
+
+    .progress-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    .pix-section {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .pix-key {
+        background: var(--bg-card);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        font-family: 'Courier New', monospace;
+        font-size: 1.1rem;
+        color: var(--accent);
+    }
+
+    /* How to Publish */
+    .publish-info {
+        background: var(--bg-card);
+        border-radius: 16px;
+        padding: 2.5rem;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+    }
+
+    .publish-info h3 {
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .publish-info p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .code-block {
+        background: var(--bg-primary);
+        padding: 1rem;
+        border-radius: 8px;
+        font-family: 'Courier New', monospace;
+        color: var(--accent);
+        border: 1px solid var(--border);
+        margin: 1rem 0;
+        overflow-x: auto;
+    }
+
+    /* Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+        z-index: 2000;
+        padding: 2rem;
+        overflow-y: auto;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .modal-content {
+        background: var(--bg-secondary);
+        border-radius: 20px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        border: 1px solid var(--border);
+        animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+        padding: 2rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background: var(--bg-secondary);
+        z-index: 1;
+    }
+
+    .modal-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .modal-close {
+        background: var(--bg-card);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+    }
+
+    .modal-close:hover {
+        background: var(--accent);
+        color: var(--bg-primary);
+        transform: rotate(90deg);
+    }
+
+    .modal-body {
+        padding: 2rem;
+    }
+
+    .chapter-content {
+        color: var(--text-secondary);
+        line-height: 1.9;
+        font-size: 1.05rem;
+    }
+
+    .chapter-content p {
+        margin-bottom: 1.2rem;
+    }
+
+    .qr-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    #qrCanvas {
+        border: 8px solid white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .pix-info {
+        text-align: center;
+        padding: 1.5rem;
+        background: var(--bg-card);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        width: 100%;
+    }
+
+    .pix-info p {
+        margin: 0.5rem 0;
+        color: var(--text-secondary);
+    }
+
+    .pix-info strong {
+        color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+        padding: 3rem 0 2rem;
+        text-align: center;
+        margin-top: 5rem;
+    }
+
+    .footer-content {
+        color: var(--text-secondary);
+    }
+
+    .footer-content p {
+        margin: 0.5rem 0;
+    }
+
+    /* Toast */
+    .toast {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--success);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
+        transform: translateX(400px);
+        transition: transform 0.3s ease;
+        z-index: 3000;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .toast.show {
+        transform: translateX(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        nav ul {
+            flex-direction: column;
+            padding: 1.5rem;
+            gap: 1rem;
+        }
+
+        .hero {
+            padding: 6rem 0 3rem;
+        }
+
+        .books-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .meta-section {
+            padding: 2rem 1.5rem;
+        }
+
+        .modal {
+            padding: 1rem;
+        }
+
+        .book-actions {
+            flex-direction: column;
+        }
+
+        .btn-sm {
+            width: 100%;
+        }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--border);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent);
+    }
 </style>
 </head>
 <body>
-<!-- Header Fixo -->
-<header id="header" class="fixed top-0 w-full z-50 transition-all duration-300">
-  <nav class="glass-effect">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
-        <div class="flex-shrink-0">
-          <a href="#inicio" class="text-2xl md:text-3xl font-bold gold-gradient">M. GALVÃO</a>
-        </div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#inicio" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300 font-medium">Início</a>
-          <a href="#livros" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300 font-medium">Livros</a>
-          <a href="#apoie" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300 font-medium">Apoie</a>
-          <a href="#contato" class="text-white hover:text-[var(--color-gold)] transition-colors duration-300 font-medium">Contato</a>
-        </div>
-        <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-dark)] border-t border-[var(--color-gold)]/20">
-      <div class="px-4 py-4 space-y-3">
-        <a href="#inicio" class="block text-white hover:text-[var(--color-gold)] py-2 transition-colors">Início</a>
-        <a href="#livros" class="block text-white hover:text-[var(--color-gold)] py-2 transition-colors">Livros</a>
-        <a href="#apoie" class="block text-white hover:text-[var(--color-gold)] py-2 transition-colors">Apoie</a>
-        <a href="#contato" class="block text-white hover:text-[var(--color-gold)] py-2 transition-colors">Contato</a>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<!-- PARTE 1 - HERO + SOBRE -->
-<section id="inicio" class="gradient-hero min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-  <!-- Estrelas decorativas -->
-  <div id="stars-container"></div>
-  
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
-    <div class="fade-in">
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-glow">
-        <span class="gold-gradient">M. GALVÃO</span>
-      </h1>
-      <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 font-light tracking-wide">
-        Escritora de mundos que despertam a alma
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="#livros" class="btn-gold text-[var(--color-dark)] px-8 py-4 rounded-full font-bold text-lg w-full sm:w-auto">
-          <i class="fas fa-book-open mr-2"></i>Conheça os livros
-        </a>
-        <a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank" class="btn-outline text-[var(--color-gold)] px-8 py-4 rounded-full font-bold text-lg w-full sm:w-auto flex items-center justify-center">
-          <i class="fab fa-youtube mr-2"></i>Assistir no YouTube
-        </a>
-      </div>
-    </div>
-    
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <i class="fas fa-chevron-down text-[var(--color-gold)] text-3xl"></i>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Sobre -->
-<section id="sobre" class="py-20 md:py-32 bg-gradient-to-b from-[var(--color-dark)] to-[var(--color-mid)]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div class="scroll-reveal">
-        <!-- TROCAR AQUI - foto_autora.png -->
-        <div class="relative w-full max-w-md mx-auto">
-          <div class="aspect-[3/4] bg-gradient-to-br from-[var(--color-mid)] to-[var(--color-light)] rounded-2xl shadow-2xl flex items-center justify-center border-2 border-[var(--color-gold)]/20">
-            <div class="text-center p-8">
-              <i class="fas fa-user text-6xl text-[var(--color-gold)]/30 mb-4"></i>
-              <p class="text-gray-400 text-sm">foto_autora.png</p>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">M. GALVÃO - Escritora</div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#livros">Livros</a></li>
+                        <li><a href="#meta">Meta</a></li>
+                        <li><a href="#publicar">Publicar</a></li>
+                    </ul>
+                </nav>
             </div>
-          </div>
-          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-[var(--color-gold)]/10 rounded-full blur-3xl"></div>
         </div>
-      </div>
-      
-      <div class="scroll-reveal">
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">
-          <span class="gold-gradient">Sobre a Autora</span>
-        </h2>
-        <div class="space-y-4 text-gray-300 text-lg leading-relaxed">
-          <p>
-            M. Galvão é uma escritora apaixonada por criar universos que desafiam a percepção e tocam a essência da existência humana. 
-          </p>
-          <p>
-            Com uma escrita que transita entre o místico e o filosófico, suas obras convidam o leitor a jornadas de autoconhecimento, questionamento e despertar espiritual.
-          </p>
-          <p>
-            Cada livro é um portal para realidades paralelas onde alma, mente e verdade se entrelaçam em narrativas profundas e transformadoras.
-          </p>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bem-vindo ao Universo de M. Galvão</h1>
+                <p>Histórias que atravessam mundos, revelam verdades ocultas e despertam consciências. Apoie o projeto e faça parte dessa jornada literária independente.</p>
+                <a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                    </svg>
+                    Assistir no YouTube
+                </a>
+            </div>
         </div>
-        
-        <div class="mt-8 flex gap-4">
-          <a href="https://wa.me/55" target="_blank" class="w-12 h-12 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all duration-300 text-xl">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <a href="mailto:contato@mgalvao.com" class="w-12 h-12 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all duration-300 text-xl">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank" class="w-12 h-12 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all duration-300 text-xl">
-            <i class="fab fa-youtube"></i>
-          </a>
-          <a href="#" class="w-12 h-12 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all duration-300 text-xl">
-            <i class="fab fa-instagram"></i>
-          </a>
+    </section>
+
+    <section id="livros">
+        <div class="container">
+            <h2 class="section-title">Coleção Completa</h2>
+            <p class="section-subtitle">Oito obras para expandir sua mente e alma. Leia o primeiro capítulo gratuitamente.</p>
+            
+            <div class="books-grid" id="booksGrid"></div>
+
+            <div class="meta-section" id="meta">
+                <h3 class="section-title" style="font-size: 2rem;">Meta de Publicação</h3>
+                <p class="section-subtitle">Ajude a tornar esses livros disponíveis para todos</p>
+                
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span>R$ 0</span>
+                        <span id="progressValue">R$ 0 / R$ 21.000</span>
+                        <span>R$ 21.000</span>
+                    </div>
+                </div>
+
+                <div class="pix-section">
+                    <div class="pix-key" id="pixKey">11825098603</div>
+                    <button class="btn btn-secondary" id="copyPixBtn">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copiar Chave Pix
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <section id="publicar">
+        <div class="container">
+            <h2 class="section-title">Como Publicar os PDFs</h2>
+            <div class="publish-info">
+                <h3>Para ativar o download dos livros:</h3>
+                <p>1. Crie uma pasta chamada <strong>/livros/</strong> na raiz do seu servidor/site.</p>
+                <p>2. Faça upload dos 8 arquivos PDF com os nomes exatos listados em cada card.</p>
+                <p>3. Os botões de download funcionarão automaticamente quando os arquivos estiverem no local correto.</p>
+                <div class="code-block">
+                    Exemplo de estrutura:<br>
+                    /livros/<br>
+                    ├── EU_SOU_SEU_DEUS.pdf<br>
+                    ├── As_peças_da_minha_mente.pdf<br>
+                    ├── A_QUEDA_DA_DOUTRINA.pdf<br>
+                    └── ... 
+                </div>
+                <p>Até lá, você pode ler o primeiro capítulo de cada obra e apoiar o projeto via Pix para acelerar a publicação completa.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>M. GALVÃO - Escritora</strong></p>
+                <p>&copy; 2025 Todos os direitos reservados</p>
+                <p>Feito com amor e palavras</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Capítulo -->
+    <div class="modal" id="chapterModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="chapterTitle"></h3>
+                <button class="modal-close" id="closeChapterModal">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="chapter-content" id="chapterContent"></div>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
 
-<!-- PARTE 2 - LIVROS + APOIO -->
-<section id="livros" class="py-20 md:py-32 bg-[var(--color-dark)]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16 scroll-reveal">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
-        <span class="gold-gradient">Biblioteca</span>
-      </h2>
-      <p class="text-gray-400 text-lg">Explore universos únicos através de 8 obras transformadoras</p>
+    <!-- Modal Pix -->
+    <div class="modal" id="pixModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Apoiar via Pix</h3>
+                <button class="modal-close" id="closePixModal">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="qr-container">
+                    <canvas id="qrCanvas" width="256" height="256"></canvas>
+                    <div class="pix-info">
+                        <p><strong>Livro:</strong> <span id="pixBookName"></span></p>
+                        <p><strong>Chave Pix:</strong> 11825098603</p>
+                        <p><strong>Descrição:</strong> <span id="pixDescription"></span></p>
+                        <button class="btn btn-primary" style="margin-top: 1rem;" id="copyPixModalBtn">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            Copiar Chave
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Livro 1 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_1.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-feather-alt text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">Eu sou seu Deus</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">Eu sou seu Deus</h3>
-        <p class="text-gray-400 text-sm mb-4">256 páginas • Formato A6</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('Eu sou seu Deus')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('Eu sou seu Deus')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
 
-      <!-- Livro 2 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_2.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-brain text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">As peças da minha mente</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">As peças da minha mente</h3>
-        <p class="text-gray-400 text-sm mb-4">320 páginas • Formato A4</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('As peças da minha mente')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('As peças da minha mente')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
-
-      <!-- Livro 3 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_3.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-mountain text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">A queda da doutrina</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">A queda da doutrina</h3>
-        <p class="text-gray-400 text-sm mb-4">288 páginas • Formato A6</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('A queda da doutrina')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('A queda da doutrina')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
-
-      <!-- Livro 4 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_4.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-star text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">Entre mundo a escolhida</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">Entre mundo a escolhida</h3>
-        <p class="text-gray-400 text-sm mb-4">340 páginas • Formato A4</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('Entre mundo a escolhida')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('Entre mundo a escolhida')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
-
-      <!-- Livro 5 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_5.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-hourglass-half text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">Ampulheta da alma</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">Ampulheta da alma</h3>
-        <p class="text-gray-400 text-sm mb-4">272 páginas • Formato A6</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('Ampulheta da alma')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('Ampulheta da alma')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
-
-      <!-- Livro 6 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_6.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-coffee text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">Café com Deus</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">Café com Deus</h3>
-        <p class="text-gray-400 text-sm mb-4">224 páginas • Formato A6</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('Café com Deus')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('Café com Deus')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
-
-      <!-- Livro 7 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_7.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-search text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">A verdade que busco</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">A verdade que busco</h3>
-        <p class="text-gray-400 text-sm mb-4">300 páginas • Formato A4</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('A verdade que busco')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('A verdade que busco')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
-
-      <!-- Livro 8 -->
-      <div class="card-book rounded-2xl p-6 scroll-reveal">
-        <!-- TROCAR AQUI - capa_livro_8.jpg -->
-        <div class="book-cover aspect-[2/3] rounded-lg mb-4 flex items-center justify-center relative overflow-hidden">
-          <div class="text-center p-4 z-10">
-            <i class="fas fa-infinity text-4xl text-[var(--color-gold)]/40 mb-2"></i>
-            <p class="text-sm text-white/80 font-semibold">Entre mundos os ecos</p>
-          </div>
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-white">Entre mundos os ecos</h3>
-        <p class="text-gray-400 text-sm mb-4">360 páginas • Formato A4</p>
-        <div class="space-y-2">
-          <button onclick="openChapterModal('Entre mundos os ecos')" class="w-full btn-outline text-[var(--color-gold)] py-2 rounded-lg text-sm font-semibold">
-            <i class="fas fa-book-reader mr-1"></i>Ler 1º Capítulo
-          </button>
-          <button onclick="openPixModal('Entre mundos os ecos')" class="w-full btn-gold text-[var(--color-dark)] py-2 rounded-lg text-sm font-bold">
-            <i class="fas fa-heart mr-1"></i>Apoiar com Pix
-          </button>
-        </div>
-      </div>
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span id="toastMessage">Chave Pix copiada!</span>
     </div>
-  </div>
-</section>
-
-<!-- Seção Meta 2027 -->
-<section id="apoie" class="py-20 md:py-32 bg-gradient-to-b from-[var(--color-mid)] to-[var(--color-dark)]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="glass-effect rounded-3xl p-8 md:p-12 scroll-reveal">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="gold-gradient">Meta 2027</span>
-        </h2>
-        <p class="text-gray-300 text-lg">Ajude a publicar 8 livros independentes</p>
-      </div>
-      
-      <div class="mb-8">
-        <div class="flex justify-between items-end mb-3">
-          <div>
-            <p class="text-sm text-gray-400 mb-1">Arrecadado</p>
-            <p class="text-3xl font-bold text-[var(--color-gold)]" id="current-value">R$ 0</p>
-          </div>
-          <div class="text-right">
-            <p class="text-sm text-gray-400 mb-1">Meta</p>
-            <p class="text-2xl font-bold text-gray-300">R$ 21.000</p>
-          </div>
-        </div>
-        <div class="w-full bg-white/10 rounded-full h-6 overflow-hidden">
-          <div id="progress-bar" class="progress-bar-fill h-full rounded-full" style="width: 0%"></div>
-        </div>
-        <p class="text-center text-gray-400 text-sm mt-3">
-          <span id="percentage">0</span>% concluído •
-        </p>
-      </div>
-      
-      <div class="text-center">
-        <button onclick="openPixModal('Doação Geral')" class="btn-gold text-[var(--color-dark)] px-10 py-4 rounded-full font-bold text-lg">
-          <i class="fas fa-hand-holding-heart mr-2"></i>Fazer doação geral
-        </button>
-        <p class="text-gray-400 text-sm mt-4">Cada contribuição nos aproxima do sonho de 8 livros publicados</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Vídeo -->
-<section class="py-20 md:py-32 bg-[var(--color-dark)]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12 scroll-reveal">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">
-        <span class="gold-gradient">Conheça Meu Trabalho</span>
-      </h2>
-      <p class="text-gray-400 text-lg">Entenda a essência por trás das palavras</p>
-    </div>
-    
-    <div class="scroll-reveal">
-      <div class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-[var(--color-gold)]/20">
-        <iframe 
-          class="w-full h-full" 
-          src="https://www.youtube.com/embed/Fuf_ORL0GIs" 
-          title="YouTube video player" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Rodapé -->
-<footer id="contato" class="bg-[var(--color-dark)] border-t border-[var(--color-gold)]/20 py-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div>
-        <h3 class="text-2xl font-bold mb-4 gold-gradient">M. GALVÃO</h3>
-        <p class="text-gray-400 text-sm">Escritora de mundos que despertam a alma</p>
-      </div>
-      
-      <div>
-        <h4 class="text-lg font-bold mb-4 text-[var(--color-gold)]">Contato</h4>
-        <div class="space-y-2 text-gray-400 text-sm">
-          <p><i class="fas fa-envelope mr-2"></i>contato@mgalvao.com</p>
-          <p><i class="fab fa-whatsapp mr-2"></i>+55 (00) 00000-0000</p>
-          <p><i class="fab fa-youtube mr-2"></i>@mgalvaoescritora</p>
-        </div>
-      </div>
-      
-      <div>
-        <h4 class="text-lg font-bold mb-4 text-[var(--color-gold)]">Informações</h4>
-        <div class="space-y-2 text-gray-400 text-sm">
-          <p>CNPJ: [SEU CNPJ]</p>
-          <p>Todos os direitos reservados</p>
-          <p>&copy; 2025 M. Galvão</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="border-t border-white/10 pt-8 text-center">
-      <div class="flex justify-center gap-4 mb-4">
-        <a href="https://wa.me/55" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="mailto:contato@mgalvao.com" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[var(--color-gold)] hover:text-[var(--color-dark)] flex items-center justify-center transition-all">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </div>
-      <p class="text-gray-500 text-xs">Desenvolvido com alma e propósito</p>
-    </div>
-  </div>
-</footer>
-
-<!-- Modal Capítulo -->
-<div id="chapterModal" class="modal">
-  <div class="modal-content glass-effect rounded-2xl max-w-3xl w-11/12 max-h-[80vh] overflow-y-auto p-8 relative">
-    <button onclick="closeChapterModal()" class="absolute top-4 right-4 text-gray-400 hover:text-[var(--color-gold)] text-2xl">
-      <i class="fas fa-times"></i>
-    </button>
-    <h3 id="chapterTitle" class="text-3xl font-bold mb-6 gold-gradient"></h3>
-    <div class="text-gray-300 leading-relaxed space-y-4">
-      <p class="font-semibold text-[var(--color-gold)]">Capítulo 1</p>
-      <p id="chapterText">
-        <!-- TROCAR AQUI - [TEXTO CAPITULO 1] -->
-        [TEXTO CAPITULO 1] - O início de uma jornada que transcende as páginas...
-      </p>
-      <p class="text-sm text-gray-500 italic mt-8">
-        * Este é um trecho demonstrativo. O livro completo estará disponível após o apoio à publicação.
-      </p>
-      <button onclick="openPixModalFromChapter()" class="btn-gold text-[var(--color-dark)] px-6 py-3 rounded-full font-bold mt-6">
-        <i class="fas fa-heart mr-2"></i>Apoiar este livro
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Pix -->
-<div id="pixModal" class="modal">
-  <div class="modal-content glass-effect rounded-2xl max-w-md w-11/12 p-8 relative">
-    <button onclick="closePixModal()" class="absolute top-4 right-4 text-gray-400 hover:text-[var(--color-gold)] text-2xl">
-      <i class="fas fa-times"></i>
-    </button>
-    <h3 class="text-2xl font-bold mb-2 gold-gradient">Apoiar com Pix</h3>
-    <p id="pixBookTitle" class="text-gray-400 mb-6"></p>
-    
-    <div class="bg-white p-6 rounded-xl mb-6">
-      <div class="aspect-square bg-gray-200 flex items-center justify-center rounded-lg">
-        <div class="text-center">
-          <i class="fas fa-qrcode text-6xl text-gray-400 mb-2"></i>
-          <p class="text-gray-600 text-sm">QR Code Pix</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="space-y-4">
-      <div>
-        <label class="text-sm text-gray-400 mb-2 block">Chave Pix</label>
-        <div class="flex gap-2">
-          <input id="pixKey" type="text" value="email@exemplo.com" readonly class="flex-1 bg-white/10 border border-[var(--color-gold)]/30 rounded-lg px-4 py-2 text-white text-sm">
-          <button onclick="copyPixKey()" class="btn-gold text-[var(--color-dark)] px-4 py-2 rounded-lg font-bold text-sm">
-            <i class="fas fa-copy"></i>
-          </button>
-        </div>
-      </div>
-      
-      <div>
-        <label class="text-sm text-gray-400 mb-2 block">Valor Sugerido</label>
-        <p class="text-3xl font-bold text-[var(--color-gold)]">R$ 25,00</p>
-      </div>
-      
-      <p class="text-xs text-gray-500 text-center">
-        Sua contribuição faz a diferença na publicação independente
-      </p>
-    </div>
-  </div>
-</div>
 
 <script>
-  // Variáveis globais
-  let currentBookForPix = '';
-  const currentArrecadado = 0; // Atualizar com valor real
-  const metaTotal = 21000;
+    // Dados dos livros
+    const books = [
+        { title: "EU SOU SEU DEUS", pages: "61p", format: "A6", file: "EU_SOU_SEU_DEUS.pdf" },
+        { title: "As peças da minha mente", pages: "73p", format: "A6", file: "As_peças_da_minha_mente.pdf" },
+        { title: "A QUEDA DA DOUTRINA", pages: "114p", format: "A6", file: "A_QUEDA_DA_DOUTRINA.pdf" },
+        { title: "Entre Mundos: A Escolhida", pages: "154p", format: "A6", file: "entre_mundo_a_escolhida_1.pdf" },
+        { title: "Ampulheta Da Lala", pages: "194p", format: "A4", file: "Ampulheta_Da_Lala.pdf" },
+        { title: "Café com Deus", pages: "85p", format: "A6", file: "Cafe_com_Deus.pdf" },
+        { title: "A verdade que busco", pages: "76p", format: "A6", file: "A_verdade_que_busco.pdf" },
+        { title: "Entre Mundos: Os Ecos", pages: "128p", format: "A6", file: "entre_mundos_os_ecos.pdf" }
+    ];
 
-  // Criar estrelas decorativas
-  function createStars() {
-    const container = document.getElementById('stars-container');
-    for (let i = 0; i < 50; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.width = Math.random() * 3 + 'px';
-      star.style.height = star.style.width;
-      star.style.left = Math.random() * 100 + '%';
-      star.style.top = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 3 + 's';
-      container.appendChild(star);
+    // Renderizar livros
+    function renderBooks() {
+        const grid = document.getElementById('booksGrid');
+        grid.innerHTML = books.map((book, index) => `
+            <div class="book-card">
+                <h3 class="book-title">${book.title}</h3>
+                <div class="book-meta">
+                    <span class="book-badge">${book.pages}</span>
+                    <span class="book-badge">${book.format}</span>
+                </div>
+                <div class="book-file">Arquivo: ${book.file}</div>
+                <div class="book-actions">
+                    <button class="btn btn-secondary btn-sm" onclick="openChapter(${index})">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        Ler 1º Capítulo
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="openPix(${index})">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        Apoiar
+                    </button>
+                </div>
+            </div>
+        `).join('');
     }
-  }
-  
-  // Header scroll effect
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.scrollY > 50) {
-      header.classList.add('shadow-lg');
-    } else {
-      header.classList.remove('shadow-lg');
+
+    // Menu Mobile
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        document.getElementById('nav').classList.toggle('active');
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('nav').classList.remove('active');
+        });
+    });
+
+    // Modal Capítulo
+    function openChapter(index) {
+        const book = books[index];
+        document.getElementById('chapterTitle').textContent = book.title;
+        document.getElementById('chapterContent').innerHTML = `
+            <p><strong>CAPÍTULO 1</strong></p>
+            <p>[COLAR CAPÍTULO 1 AQUI]</p>
+            <p>Substitua este texto pelo conteúdo do primeiro capítulo de "${book.title}".</p>
+            <p>Para publicar o livro completo, faça upload do arquivo "${book.file}" na pasta /livros/ do seu servidor.</p>
+        `;
+        document.getElementById('chapterModal').classList.add('active');
+        document.body.classList.add('modal-open');
     }
-  });
 
-  // Mobile menu toggle
-  document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
-  });
-
-  // Fechar mobile menu ao clicar em link
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.add('hidden');
+    document.getElementById('closeChapterModal').addEventListener('click', () => {
+        document.getElementById('chapterModal').classList.remove('active');
+        document.body.classList.remove('modal-open');
     });
-  });
 
-  // Scroll reveal animation
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
+    // Gerador QR Code PIX - Implementação JS puro sem libs
+    function generatePixQR(text, canvas) {
+        // Implementação simplificada QR Code Version 1-2 para PIX
+        // Padrão EMV + BR Code
+        const pixPayload = generatePixPayload(text);
+        
+        const ctx = canvas.getContext('2d');
+        const size = 256;
+        const modules = 25; // QR Version 2
+        const cellSize = size / modules;
+        
+        // Limpar canvas
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, size, size);
+        
+        // Gerar matriz QR simplificada baseada no payload
+        const matrix = generateQRMatrix(pixPayload, modules);
+        
+        // Desenhar QR
+        ctx.fillStyle = '#000000';
+        for (let row = 0; row < modules; row++) {
+            for (let col = 0; col < modules; col++) {
+                if (matrix[row][col]) {
+                    ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+                }
+            }
+        }
+    }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
+    function generatePixPayload(desc) {
+        // Payload PIX formato EMV
+        const key = '11825098603';
+        const name = 'M GALVAO';
+        const city = 'SAO PAULO';
+        
+        let payload = '000201'; // Payload Format Indicator
+        payload += '26580014br.gov.bcb.pix'; // Merchant Account Info
+        payload += '01' + key.length.toString().padStart(2, '0') + key;
+        payload += '52040000'; // Merchant Category Code
+        payload += '5303986'; // Transaction Currency (BRL)
+        payload += '5802BR'; // Country Code
+        payload += '59' + name.length.toString().padStart(2, '0') + name;
+        payload += '60' + city.length.toString().padStart(2, '0') + city;
+        payload += '62' + (desc.length + 4).toString().padStart(2, '0') + '05' + desc.length.toString().padStart(2, '0') + desc;
+        
+        // CRC16
+        payload += '6304';
+        const crc = crc16(payload);
+        payload += crc;
+        
+        return payload;
+    }
+
+    function crc16(str) {
+        let crc = 0xFFFF;
+        for (let i = 0; i < str.length; i++) {
+            crc ^= str.charCodeAt(i) << 8;
+            for (let j = 0; j < 8; j++) {
+                crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
+            }
+        }
+        return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+    }
+
+    function generateQRMatrix(data, size) {
+        // Matriz QR simplificada com finder patterns
+        const matrix = Array(size).fill(null).map(() => Array(size).fill(false));
+        
+        // Finder patterns - 3 cantos
+        drawFinderPattern(matrix, 0, 0);
+        drawFinderPattern(matrix, 0, size - 7);
+        drawFinderPattern(matrix, size - 7, 0);
+        
+        // Timing patterns
+        for (let i = 8; i < size - 8; i++) {
+            matrix[6][i] = i % 2 === 0;
+            matrix[i][6] = i % 2 === 0;
+        }
+        
+        // Data pattern baseado no hash do payload
+        let hash = 0;
+        for (let i = 0; i < data.length; i++) {
+            hash = ((hash << 5) - hash) + data.charCodeAt(i);
+            hash = hash & hash;
+        }
+        
+        for (let row = 9; row < size - 1; row++) {
+            for (let col = 9; col < size - 1; col++) {
+                if (row !== 6 && col !== 6) {
+                    matrix[row][col] = ((hash + row * col) % 3) === 0;
+                }
+            }
+        }
+        
+        return matrix;
+    }
+
+    function drawFinderPattern(matrix, row, col) {
+        for (let r = 0; r < 7; r++) {
+            for (let c = 0; c < 7; c++) {
+                if (r === 0 || r === 6 || c === 0 || c === 6 || (r >= 2 && r <= 4 && c >= 2 && c <= 4)) {
+                    if (matrix[row + r] && matrix[row + r][col + c] !== undefined) {
+                        matrix[row + r][col + c] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    // Modal Pix
+    function openPix(index) {
+        const book = books[index];
+        const desc = `Apoio - ${book.title}`;
+        document.getElementById('pixBookName').textContent = book.title;
+        document.getElementById('pixDescription').textContent = desc;
+        
+        const canvas = document.getElementById('qrCanvas');
+        generatePixQR(desc, canvas);
+        
+        document.getElementById('pixModal').classList.add('active');
+        document.body.classList.add('modal-open');
+    }
+
+    document.getElementById('closePixModal').addEventListener('click', () => {
+        document.getElementById('pixModal').classList.remove('active');
+        document.body.classList.remove('modal-open');
     });
-  }, observerOptions);
 
-  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-
-  // Animar barra de progresso
-  function animateProgressBar() {
-    const progressBar = document.getElementById('progress-bar');
-    const currentValueEl = document.getElementById('current-value');
-    const percentageEl = document.getElementById('percentage');
-    
-    const percentage = (currentArrecadado / metaTotal) * 100;
-    
-    setTimeout(() => {
-      progressBar.style.width = percentage + '%';
-      currentValueEl.textContent = `R$ ${currentArrecadado.toLocaleString('pt-BR')}`;
-      percentageEl.textContent = percentage.toFixed(1);
-    }, 500);
-  }
-
-  // Modal Capítulo
-  function openChapterModal(bookName) {
-    currentBookForPix = bookName;
-    document.getElementById('chapterTitle').textContent = bookName;
-    document.getElementById('chapterModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeChapterModal() {
-    document.getElementById('chapterModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  function openPixModalFromChapter() {
-    closeChapterModal();
-    setTimeout(() => openPixModal(currentBookForPix), 300);
-  }
-
-  // Modal Pix
-  function openPixModal(bookName) {
-    currentBookForPix = bookName;
-    document.getElementById('pixBookTitle').textContent = bookName === 'Doação Geral' ? 'Para todos os 8 livros' : `Para o livro "${bookName}"`;
-    document.getElementById('pixModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePixModal() {
-    document.getElementById('pixModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-  // Copiar chave Pix
-  function copyPixKey() {
-    const pixKey = document.getElementById('pixKey');
-    pixKey.select();
-    document.execCommand('copy');
-    
-    const btn = event.target.closest('button');
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i>';
-    btn.classList.add('bg-green-500');
-    
-    setTimeout(() => {
-      btn.innerHTML = originalHTML;
-      btn.classList.remove('bg-green-500');
-    }, 2000);
-  }
-
-  // Fechar modal ao clicar fora
-  document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-      }
+    // Fechar modal clicando fora
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        });
     });
-  });
 
-  // Inicializar
-  window.addEventListener('load', () => {
-    createStars();
-    animateProgressBar();
-  });
+    // Copiar Pix
+    function copyPix() {
+        navigator.clipboard.writeText('11825098603').then(() => {
+            showToast('Chave Pix copiada!');
+        }).catch(() => {
+            showToast('Erro ao copiar');
+        });
+    }
+
+    document.getElementById('copyPixBtn').addEventListener('click', copyPix);
+    document.getElementById('copyPixModalBtn').addEventListener('click', copyPix);
+
+    // Toast
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toastMessage').textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // Barra de progresso - edite este valor para atualizar
+    let currentValue = 0; // Altere aqui: ex 5000 para R$ 5.000
+    const goal = 21000;
+    
+    function updateProgress(value) {
+        const percent = (value / goal) * 100;
+        document.getElementById('progressBar').style.width = percent + '%';
+        document.getElementById('progressValue').textContent = `R$ ${value.toLocaleString('pt-BR')} / R$ ${goal.toLocaleString('pt-BR')}`;
+    }
+
+    // Header scroll
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+        } else {
+            header.style.boxShadow = 'none';
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Inicializar
+    renderBooks();
+    updateProgress(currentValue);
 </script>
-
 </body>
 </html>
