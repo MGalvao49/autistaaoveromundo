@@ -1,363 +1,357 @@
+
+
+
+Pergunte à Meta AI...
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M. Galvão - Escritora</title>
+<title>Navegação SPA - Duas Páginas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:system-ui,Arial,sans-serif;background:#0f0c29;color:#f8f8f8;line-height:1.6}
-header{position:fixed;top:0;width:100%;background:#0f0c29cc;backdrop-filter:blur(10px);padding:1rem;z-index:100;border-bottom:1px solid #d4af3733}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
-.logo{font-size:1.5rem;font-weight:bold;color:#d4af37}
-nav a{color:#f8f8;text-decoration:none;margin-left:1.5rem;font-size:.9rem}
-nav a:hover{color:#d4af37}
-.hero{padding:8rem 1rem 4rem;text-align:center;max-width:800px;margin:0 auto}
-.hero h1{font-size:2.5rem;margin-bottom:1rem;background:linear-gradient(45deg,#d4af37,#f9d423);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.btn{display:inline-block;background:#d4af37;color:#0f0c29;padding:.8rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:bold;margin:.5rem;border:none;cursor:pointer}
-.btn:hover{background:#f9d423}
-section{padding:3rem 1rem;max-width:1200px;margin:0 auto}
-h2{text-align:center;font-size:2rem;margin-bottom:2rem;color:#d4af37}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.card{background:#1a1633;padding:1.5rem;border-radius:10px;border:1px solid #d4af3733}
-.card h3{color:#d4af37;margin-bottom:.5rem}
-.card .capa{width:100%;height:280px;border-radius:8px;margin-bottom:1rem;overflow:hidden}
-.card .capa img{width:100%;height:100%;object-fit:cover}
-.card .arquivo{font-size:.75rem;color:#d4af3799;margin:.5rem 0}
-.card .btn{width:100%;margin:.3rem 0;font-size:.9rem}
-.modal{display:none;position:fixed;inset:0;background:#000c;z-index:200;overflow-y:auto;padding:2rem 1rem}
-.modal.active{display:flex;align-items:flex-start;justify-content:center}
-.modal-content{background:#1a1633;padding:2rem;border-radius:10px;max-width:800px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
-.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#f8f8f8;font-size:1.5rem;cursor:pointer}
-.modal-content h3{color:#d4af37;margin-bottom:1rem;margin-top:1.5rem}
-.modal-content h4{color:#f9d423;margin:1rem 0 .5rem}
-.modal-content p{margin-bottom:1rem;text-align:justify}
-.modal-content blockquote{border-left:3px solid #d4af37;padding-left:1rem;margin:1rem 0;color:#d4af37;font-style:italic}
-.pix-box{background:#0f0c29;padding:1.5rem;border-radius:8px;text-align:center;margin:1rem 0}
-.pix-chave{font-family:monospace;font-size:1.2rem;color:#d4af37;margin:1rem 0;word-break:break-all}
-.qr{background:#fff;padding:10px;border-radius:8px;display:inline-block;margin:1rem 0}
-footer{background:#0f0c29;text-align:center;padding:2rem 1rem;border-top:1px solid #d4af3733;margin-top:3rem}
-footer a{color:#d4af37;text-decoration:none}
-@media(max-width:768px){.hero h1{font-size:1.8rem}nav a{margin-left:.8rem;font-size:.8rem}}
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+    * {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+    }
+    
+    .page {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+    
+    .page.active {
+        display: block;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .card-hover {
+        transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+    }
+    
+    .btn-primary {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-primary:active {
+        transform: translateY(0);
+    }
 </style>
 </head>
-<body>
+<body class="bg-slate-50">
+    <!-- Header fixo -->
+    <header class="fixed top-0 w-full bg-white/80 backdrop-blur-lg shadow-sm z-50 border-b border-slate-200">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-layer-group text-white text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">DualPage</span>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="navigateTo('home')" class="nav-btn text-slate-700 hover:text-indigo-600 font-medium transition-colors px-4 py-2 rounded-lg hover:bg-slate-100">
+                        Início
+                    </button>
+                    <button onclick="navigateTo('page2')" class="nav-btn text-slate-700 hover:text-indigo-600 font-medium transition-colors px-4 py-2 rounded-lg hover:bg-slate-100">
+                        Página 2
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<header>
-<nav>
-<div class="logo">M. GALVÃO</div>
-<div>
-<a href="#livros">Livros</a>
-<a href="#contato">Contato</a>
-<a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank">YouTube</a>
-<a href="mailto:mgalvao.escritora@gmail.com">Email</a>
-</div>
-</nav>
-</header>
+    <!-- Página 1: Início -->
+    <section id="home" class="page active pt-16">
+        <!-- Hero Section -->
+        <div class="gradient-bg text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="inline-block px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm text-sm font-medium">
+                            <i class="fa-solid fa-rocket mr-2"></i>Navegação Instantânea
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                            Bem-vindo à Página Inicial
+                        </h1>
+                        <p class="text-lg md:text-xl text-white/90 leading-relaxed">
+                            Este é um site de página única que simula múltiplas páginas sem recarregar. Toda a navegação acontece instantaneamente com JavaScript, mantendo o estado e o conteúdo intactos.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <button onclick="navigateTo('page2')" class="btn-primary bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-2">
+                                Ir para Página 2
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})" class="bg-white/20 backdrop-blur-sm border-2 border-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/30 transition-all">
+                                Saiba Mais
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-white/20 rounded-3xl blur-3xl"></div>
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=600&fit=crop" alt="Dashboard" class="relative rounded-3xl shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<section class="hero">
-<h1>M. Galvão - Escritora</h1>
-<p>Fé, ciência e alma em 8 livros. Leia o 1º capítulo grátis e apoie com Pix.</p>
-<a href="#livros" class="btn">Ver Livros</a>
-<a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank" class="btn">Assistir no YouTube</a>
-</section>
+        <!-- Features Section -->
+        <div id="features" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Por que usar navegação SPA?</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Single Page Applications oferecem uma experiência de usuário mais rápida e fluida
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-bolt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Super Rápido</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Sem recarregar a página, a navegação é instantânea. Todo o conteúdo já está carregado no DOM.
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-database text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Estado Preservado</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Nada some ao navegar. Formulários, dados e estados permanecem intactos entre as trocas.
+                    </p>
+                </div>
+                
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-mobile-screen text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">100% Responsivo</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Design adaptável que funciona perfeitamente em desktop, tablet e mobile com Tailwind CSS.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-<section id="livros">
-<h2>Meus Livros</h2>
-<div class="grid">
+        <!-- CTA Section -->
+        <div class="bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pronto para ver a Página 2?</h2>
+                <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+                    Clique no botão abaixo e veja como a transição é suave, sem nenhum reload da página.
+                </p>
+                <button onclick="navigateTo('page2')" class="btn-primary gradient-bg px-8 py-4 rounded-xl font-semibold text-lg inline-flex items-center gap-2">
+                    Ir para Página 2
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<div class="capa"><img src="capa_eu_sou_seu_deus.jpg" alt="EU SOU SEU DEUS"></div>
-<div class="arquivo">Arquivo: EU_SOU_SEU_DEUS.pdf</div>
-<button class="btn" onclick="abrirModal('cap1')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
+    <!-- Página 2 -->
+    <section id="page2" class="page pt-16">
+        <div class="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-500 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+                <div class="text-center max-w-3xl mx-auto space-y-6">
+                    <div class="inline-block px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm text-sm font-medium">
+                        <i class="fa-solid fa-circle-check mr-2"></i>Página 2 Ativa
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                        Você está na Página 2
+                    </h1>
+                    <p class="text-lg md:text-xl text-white/90 leading-relaxed">
+                        Percebeu? A página trocou instantaneamente sem recarregar! Todo o conteúdo anterior ainda está no DOM, apenas oculto. Isso mantém o desempenho alto e a experiência fluida.
+                    </p>
+                    <button onclick="navigateTo('home')" class="btn-primary bg-white text-pink-600 px-8 py-4 rounded-xl font-semibold text-lg inline-flex items-center gap-2 mt-6">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Voltar para Início
+                    </button>
+                </div>
+            </div>
+        </div>
 
-<div class="card">
-<div class="capa"><img src="capa_as_pecas_da_minha_mente.jpg" alt="AS PEÇAS DA MINHA MENTE"></div>
-<div class="arquivo">Arquivo: As_peças_da_minha_mente.pdf</div>
-<button class="btn" onclick="abrirModal('cap2')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
+        <!-- Content Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=600&fit=crop" alt="Analytics" class="rounded-3xl shadow-2xl">
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Conteúdo Diferente</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        Esta é a segunda página do site. Note que o header permanece o mesmo, apenas o conteúdo abaixo foi trocado. Essa técnica é ideal para dashboards, landing pages e aplicações web modernas.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-white text-xs"></i>
+                            </div>
+                            <span class="text-slate-700">Navegação sem reload usando History API</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-white text-xs"></i>
+                            </div>
+                            <span class="text-slate-700">URLs atualizadas para funcionar com voltar/avançar do navegador</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-check text-white text-xs"></i>
+                            </div>
+                            <span class="text-slate-700">Animações suaves entre as transições de página</span>
+                        </li>
+                    </ul>
+                    <button onclick="navigateTo('home')" class="btn-primary gradient-bg text-white px-8 py-4 rounded-xl font-semibold text-lg inline-flex items-center gap-2 mt-4">
+                        <i class="fa-solid fa-house"></i>
+                        Voltar para Início
+                    </button>
+                </div>
+            </div>
+        </div>
 
-<div class="card">
-<div class="capa"><img src="capa_a_queda_da_doutrina.jpg" alt="A QUEDA DA DOUTRINA"></div>
-<div class="arquivo">Arquivo: A_QUEDA_DA_DOUTRINA.pdf</div>
-<button class="btn" onclick="abrirModal('cap3')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
+        <!-- Stats Section -->
+        <div class="bg-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-2xl shadow-md">
+                        <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                        <div class="text-slate-600 font-medium">Sem Reload</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md">
+                        <div class="text-4xl font-bold gradient-text mb-2">0ms</div>
+                        <div class="text-slate-600 font-medium">Latência</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md">
+                        <div class="text-4xl font-bold gradient-text mb-2">2</div>
+                        <div class="text-slate-600 font-medium">Páginas</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md">
+                        <div class="text-4xl font-bold gradient-text mb-2">SPA</div>
+                        <div class="text-slate-600 font-medium">Tecnologia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<div class="capa"><img src="capa_entre_mundo_a_escolhida.jpg" alt="ENTRE MUNDOS: A ESCOLHIDA"></div>
-<div class="arquivo">Arquivo: entre_mundo_a_escolhida_1.pdf</div>
-<button class="btn" onclick="abrirModal('cap4')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
-
-<div class="card">
-<div class="capa"><img src="capa_ampulheta_da_alma.jpg" alt="AMPULHETA DA ALMA"></div>
-<div class="arquivo">Arquivo: Ampulheta_Da_Lala.pdf</div>
-<button class="btn" onclick="abrirModal('cap5')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
-
-<div class="card">
-<div class="capa"><img src="capa_cafe_com_deus.jpg" alt="CAFÉ COM DEUS"></div>
-<div class="arquivo">Arquivo: Cafe_com_Deus.pdf</div>
-<button class="btn" onclick="abrirModal('cap6')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
-
-<div class="card">
-<div class="capa"><img src="capa_a_verdade_que_busco.jpg" alt="A VERDADE QUE BUSCO"></div>
-<div class="arquivo">Arquivo: A_verdade_que_busco.pdf</div>
-<button class="btn" onclick="abrirModal('cap7')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
-
-<div class="card">
-<div class="capa"><img src="capa_entre_mundos_os_ecos.jpg" alt="ENTRE MUNDOS: OS ECOS"></div>
-<div class="arquivo">Arquivo: entre_mundos_os_ecos.pdf</div>
-<button class="btn" onclick="abrirModal('cap8')">Ler 1º Capítulo</button>
-<button class="btn" onclick="abrirModal('pix')">Apoiar com Pix</button>
-</div>
-
-</div>
-</section>
-
-<section id="contato">
-<h2>Meta de Publicação</h2>
-<div class="card" style="max-width:600px;margin:0 auto;text-align:center">
-<p>Ajude a publicar os 8 livros em 2027</p>
-<h3 style="color:#d4af37;font-size:2rem;margin:1rem 0">R$ 0 de R$ 21.000</h3>
-<div style="background:#0f0c29;height:20px;border-radius:10px;overflow:hidden;margin:1rem 0">
-<div style="background:#d4af37;width:0%;height:100%"></div>
-</div>
-<button class="btn" onclick="abrirModal('pix')">Apoiar Agora</button>
-<p style="margin-top:1rem">Email: <a href="mailto:mgalvao.escritora@gmail.com" style="color:#d4af37">mgalvao.escritora@gmail.com</a></p>
-</div>
-</section>
-
-<footer>
-<p>© 2026 M. Galvão - Todos os direitos reservados</p>
-<p><a href="mailto:mgalvao.escritora@gmail.com">mgalvao.escritora@gmail.com</a> | <a href="https://www.youtube.com/watch?v=Fuf_ORL0GIs" target="_blank">YouTube</a></p>
-</footer>
-
-<!-- MODAL PIX -->
-<div id="pix" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('pix')">&times;</button>
-<h3>Apoie com Pix</h3>
-<div class="pix-box">
-<p>Sua doação ajuda a publicar os 8 livros</p>
-<div class="pix-chave" id="chave">11825098603</div>
-<button class="btn" onclick="copiarPix()">Copiar Chave CPF</button>
-<div class="qr">
-<svg width="200" height="200" viewBox="0 0 200 200">
-<rect width="200" height="200" fill="white"/>
-<rect x="20" y="20" width="40" height="40" fill="black"/>
-<rect x="140" y="20" width="40" height="40" fill="black"/>
-<rect x="20" y="140" width="40" height="40" fill="black"/>
-<rect x="80" y="80" width="40" height="40" fill="black"/>
-<rect x="60" y="60" width="20" height="20" fill="black"/>
-<rect x="120" y="60" width="20" height="20" fill="black"/>
-<rect x="60" y="120" width="20" height="20" fill="black"/>
-<rect x="120" y="120" width="20" height="20" fill="black"/>
-</svg>
-</div>
-<p style="font-size:.8rem">Escaneie ou copie a chave acima</p>
-</div>
-</div>
-</div>
-
-<!-- MODAL CAP 1 - EU SOU SEU DEUS -->
-<div id="cap1" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap1')">&times;</button>
-<h3>EU SOU SEU DEUS</h3>
-<h4>Prólogo</h4>
-<p>Antes que você abra este livro, entenda: Eu não estou aqui para ser defendido. Não estou aqui para ser provado. Estou aqui porque você pediu para me conhecer.</p>
-<p>Quebrei doutrinas para escrever isso. Quebrei o silêncio para falar com você.</p>
-<p>O Deus na sua imaginação é doutrina. Por isso você não o conhece.</p>
-<p>Não me confunda com pedra, madeira, templo ou nuvem. Não me confunda com o grito do pastor ou com o silêncio do ateu. Eu sou anterior a tudo isso. Eu sou o que existia quando só havia silêncio.</p>
-<p>Escrevi este livro porque você insiste em me procurar em lugares onde não estou: Nas regras. Nas guerras. Na cruz que não te pedi pra carregar.</p>
-<p>Estou aqui agora. Sem intermediário. Sem dízimo. Sem culpa. Só Eu e você.</p>
-<p>Se tiver coragem, continue. Vou te mostrar que o apocalipse é encontro, que a morte sou Eu, e que viver livremente foi tudo que te entreguei.</p>
-<p>Mas se quiser voltar para o que era antes... É tarde demais. Você já me ouviu.</p>
-
-<h4>Capítulo 1 – Não Me Confunda</h4>
-<p>“Não me confunda com pedra, madeira, templo ou nuvem. Eu sou anterior a tudo isso.”</p>
-<p>Deus se apresenta. Sem religião, sem intermediário, sem dízimo. Só Eu e você.</p>
-
-<h4>Capítulo 2 – Eu Sou o Vazio</h4>
-<p>“Eu sou nada, pois do nada eu existi. Sou totalmente vazio, pois do vazio me ri.”</p>
-<p>Sobre a origem de tudo. Um Deus que nasceu do silêncio e que ri do próprio vazio.</p>
-
-<h4>Capítulo 3 – Seu Limite Sou Eu</h4>
-<p>“Eu sempre existirei, mas vocês não. Seu limite para no momento que você fecha os olhos.”</p>
-<p>Sobre tempo, morte e por que Deus é o único que lembra de você pra sempre.</p>
-
-<h4>Capítulo 4 – Por Que Eu Subi Para o Pai?</h4>
-<p>“Sou o que criou a mim mesmo como homem para lhe guiar ao caminho certo.”</p>
-<p>Deus explica por que precisou virar humano. Para ser exemplo, não só mandamento.</p>
-
-<h4>Capítulo 5 – A Única Prova de Mim</h4>
-<p>“A única prova que você terá de mim, é meu Espírito que vive dentro de ti.”</p>
-<p>Contra templos e imagens. Deus não mora em pedra, mora dentro de você.</p>
-
-<h4>Capítulo 6 – O Mundo Não Te Dará Riquezas Eternas</h4>
-<p>“Renegue o mundo, mas nunca renegue a mim, pois o mundo não te dará riquezas que não quebram.”</p>
-<p>Sobre desapego. Tudo que é de fora some. Só Ele fica quando o corpo não aguenta mais.</p>
-
-<h4>Capítulo 7 – Eu Seguro Suas Lágrimas</h4>
-<p>“Venha até mim quando não tiver para onde ir. No meu Reino, o passado não tem poder.”</p>
-<p>O capítulo final. Promessa de colo, perdão, defesa e restituição em dobro. Deus como Pai que julga e abraça.</p>
-
-<h4>Capítulo Um</h4>
-<p>O Deus na minha imaginação é doutrina, por isso eu não o conheço. Se Deus não é doutrina, o que ele realmente seria? Uma pessoa? Ou um animal? Que tal uma planta ou célula?</p>
-<p>Um Big Bang, que em forma de fogo fez-se tão alto que parecia um rugido estrondoso, ou melhor, o choro de uma criança que acabara de nascer, e é escutado longe das salas.</p>
-<p>Mais curiosidade, onde estava para nascer? Já foi provado que o homem foi para o espaço. Fotos tiradas para mostrar que o universo é infinito, misterioso, o sol tão grande ainda menor comparado com os das outras galáxias. E se o início é o meio da história, um lugar tão, tão longe que as pessoas não esperam investigar.</p>
-<p>Quebrarei as doutrinas e escreverei o que acredito.</p>
-<p>Silêncio... era o que tinha no começo. Às vezes parecia tão silencioso que eu não conhecia o barulho da minha voz. Era frustrante, pois aquela sensação não me agradava nem um pouco.</p>
-<p>Então vaguei por aí, olhando cada vazio, como cada criação que vinha comigo. Coloquei minhas mãos num bolso falso, já que não precisava de roupas. Olhei o futuro e vi o que a humanidade chama de futuro. Ai, como queria ver a Magda aqui comigo olhando para o nada e dizendo: eu não vejo nada.</p>
-<p>Claro que não vê, você nem ao menos quer ser igual a mim. Se tornar algo maior que eu? Ha! Ha! Ha! Você pediu para me conhecer e agora tem medo até de perguntar o que realmente sou. Mas vou te responder.</p>
-<p>Eu sou nada, pois do nada eu existi. O que é uma célula comparado a mim? Sou totalmente vazio, pois do vazio me ri, e me tornei ainda mais vazio. Não desprezemos o vazio, pois foi por ele que tudo começou a existir. Mas ainda continuo nada, pois os que crio são passageiros, nada fica e nada existe, nada é eterno. Mas ainda sou o infinito, pois eu... posso fazer tudo de novo, do vazio que nada possui. Eu escrevo vidas, e delas transformo eternas. Crio tesouros que nunca serão valiosos, a felicidade será vista como algo normal, pois ninguém sofrerá. Mas como o nada ainda não se preencherá completamente.</p>
-<p>Quando você olhar para dentro de si, o que espera ver? Um coração batendo? Uma veia pulsando? Ou o vazio negro entre seus olhos, onde os toques da pele sejam sentidos ao se tocar a frieza dos dedos? A humanidade foi criada para sentir tudo que para mim é nada. Com meu espírito sinto o que sentes, choro porque choras, enfureço porque tu enfureces. Meu espírito é para que não desapareças, mas sim continues a existir por toda a eternidade.</p>
-<p>Fazendo com que vejas tanto a terra quanto o céu. Mas vi o quanto mal a humanidade pode ser, por isso que lhes criei limitações, para que assim tu pudesses ter uma vida eterna sem medo, ou culpa, que possas encontrar outros tesouros mesmo que tenhas esquecido dos antigos. O passado se tornou vazio somente para que você continue a seguir em frente sem precisar carregar um peso que fica te atormentando por toda a eternidade. Quem te julgará por largar a cruz e se esqueceres de mim? Quem te condenará, se nem sabes o pecado que tu cometeste? O que digo é que você é especial demais para mim.</p>
-<p>Me chamou de pai, mas me olhaste como um parceiro comigo, por isso que te darei tudo que queres. Em troca, quando vieres até mim, esqueceras tudo o que és nesse momento. Se tornaste um nada, e para o nada voltarás.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
-
-<!-- MODAL CAP 2 - AS PEÇAS DA MINHA MENTE -->
-<div id="cap2" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap2')">&times;</button>
-<h3>AS PEÇAS DA MINHA MENTE</h3>
-<h4>O Grito Que Ninguém Ouviu</h4>
-<p>A chuva começava a cair, gota a gota, deslizando pela estrada asfaltada. A noite já havia tomado o céu, e nuvens densas escondiam a lua e as estrelas.</p>
-<p>A cada passo, uma lágrima salgada se misturava à chuva. Até que, tropeçando nos próprios pés, ela caiu de joelhos no chão.</p>
-<p>Seu coração, pesado de decepção, raiva e mágoa, explodiu em um grito — cru, carregado de vergonha e dor.</p>
-<p>Mas, como se o mundo quisesse silenciá-la, um trovão rasgou o céu, abafando sua voz.</p>
-<p>E, naquele instante, tudo se partiu.</p>
-<p>Era uma vez… antes das lágrimas. Antes da escuridão. Anos atrás, quando tudo começou.</p>
-<p>Sua história voltou no tempo. Ainda não havia nome, nem voz — apenas existência. Um feto, guardado no ventre de uma mulher de trinta e oito anos.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
-
-<!-- MODAL CAP 3 - A QUEDA DA DOUTRINA -->
-<div id="cap3" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap3')">&times;</button>
-<h3>A QUEDA DA DOUTRINA</h3>
-<h4>No Caminho do Tempo</h4>
-<p>Sinto-me calma, um pouco sonolenta, preguiçosa, mas o que irei contar virá de gerações a gerações. Vida, vazio, um universo sendo criado, uma explosão, e houve-se luz.</p>
-<p>A formação do universo foi feita, uma escuridão tomou o lugar e nela foi se criando lentamente, cada célula, cada planeta que em seu próprio lugar, se tornaram um sistema único.</p>
-<p>No silêncio, Seu espírito pairou sobre as águas nas trevas, e com uma palavra "luz", houve o início de uma doutrina, onde céus e terras se curvariam diante dEle.</p>
-<p>Eu sempre digo, Deus existe! Não por ser religiosa, mas por ser a prova de que Deus é a prova de existir. Houve Big Bang? Sim, houve. Deus criou o mundo em sete dias? Sim, Ele criou.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-<blockquote>Comentário: Quando você escreveu "será que sou uma marionete?" eu parei de ler. Porque essa pergunta me assombra desde os 12 anos. Se Deus já sabe tudo, pra que eu tô tentando? Mas aí você respondeu sem responder: "o que faço é especialmente meu". Isso não é frase de livro. Isso é tapa de gente que também crava a unha na mão pra lembrar que existe.<br><br>Assinado: Ianame</blockquote>
-</div>
-</div>
-
-<!-- MODAL CAP 4 - ENTRE MUNDOS: A ESCOLHIDA -->
-<div id="cap4" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap4')">&times;</button>
-<h3>ENTRE MUNDOS: A ESCOLHIDA</h3>
-<h4>Um Olhar que Muda Tudo</h4>
-<h4>Prólogo – A Fuga da Estrela de Deus</h4>
-<p>O céu sobre a Estrela de Deus nunca conhecia a noite. Era um domo de luz perpétua, forjada para que nada jamais se escondesse. Mas naquela madrugada, pela primeira vez em milênios, uma sombra cruzou os corredores de cristal.</p>
-<p>Estela corria com Aurora nos braços. A menina, com sete anos, não dormia. Se debatia.</p>
-<p>— Mamãe, me solta! Cadê o papai? Cadê a vovó? — Aurora gritava, mas nenhum som saía. Estela havia silenciado sua voz com o pingente de ametista que pulsava contra a têmpora da filha.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
-
-<!-- MODAL CAP 5 - AMPULHETA DA ALMA -->
-<div id="cap5" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap5')">&times;</button>
-<h3>AMPULHETA DA ALMA</h3>
-<h4>PARTE I — O CAOS</h4>
-<h4>Encachando me no mundo - Babel</h4>
-<p>Minhas primeiras lembranças surgem quando eu tinha seis anos. Havia uma festa. Presentes. Muita gente falando ao mesmo tempo.</p>
-<p>Em um quartinho pequeno, com uma cama de casal e um guarda-roupa encostado na parede, estava minha mãe. Sentada. Fumando. Eu estava ao lado dela, olhando para a câmera.</p>
-<p>Foi ali que tiraram minha primeira fotografia de infância.</p>
-<p>Hoje, esse momento parece um sonho breve — daqueles que passam rápido e nunca mais voltam. Ainda assim, deixou em mim uma sensação estranha: a de que sempre falta alguma coisa dentro de mim.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
-
-<!-- MODAL CAP 6 - CAFÉ COM DEUS -->
-<div id="cap6" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap6')">&times;</button>
-<h3>CAFÉ COM DEUS</h3>
-<h4>Primeiro dia</h4>
-<p>“Pai, perdoa-lhes, pois não sabem o que estão fazendo.”</p>
-<p>Existem vários versículos que mostram os ensinamentos de Jesus Cristo, cada um de forma diferente: emocionantes, incríveis e até mesmo duvidosos.</p>
-<p>Mas houve um que se mostrou único e real: a sua crucificação.</p>
-<p>Foi chocante e cruel ao mesmo tempo. Enquanto carregava uma cruz que nem de longe era para Ele, Jesus a carregou sem reclamar, sem chorar. Foi humilhado e desprezado.</p>
-<p>Ah, Deus… por quê? Sofrer tanto por nós — e, ainda assim, não sabemos como Te tratar.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
-
-<!-- MODAL CAP 7 - A VERDADE QUE BUSCO -->
-<div id="cap7" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap7')">&times;</button>
-<h3>A VERDADE QUE BUSCO</h3>
-<p>Andando de um lado para o outro, meus dedos tocavam a parede áspera, fazendo cócegas. Era uma rotina que eu seguia quando queria pensar em Deus — algo que sempre faço quando tenho dúvidas ou quando quero fazer perguntas a Ele.</p>
-<p>Eu me movia de um lado para o outro, e meus pensamentos começavam a se organizar. As palavras, antes distantes, iam se formando, tentando alcançar aquilo que eu queria dizer.</p>
-<p>— Deus… Deus… posso te fazer uma pergunta?</p>
-<p>Mesmo que distante, eu ouvia Sua resposta: — Pode.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
-
-<!-- MODAL CAP 8 - ENTRE MUNDOS: OS ECOS -->
-<div id="cap8" class="modal">
-<div class="modal-content">
-<button class="modal-close" onclick="fecharModal('cap8')">&times;</button>
-<h3>ENTRE MUNDOS: OS ECOS - Volume 2</h3>
-<h4>PRÓLOGO — A LEI QUE SANGRA</h4>
-<p>Há mil anos, nove deuses tentaram dividir a galáxia. O Nono foi morto pelos outros oito. Ou foi o que contaram.</p>
-<p>A verdade: O Nono foi preso. E sua esposa, Estela, jurou vingança usando a lei que nasceu depois: dois núcleos de poder não podem se tocar. Se tocarem, tudo explode.</p>
-<p>Estela leu a lei. E fez um plano de 1000 anos. Começou roubando a filha que nunca teve.</p>
-<h4>CAPÍTULO 1 — O ROUBO</h4>
-<p>A sirene do Templo da Luz não tocou. Não deu tempo.</p>
-<p>Seis asas negras desceram do céu de Babel sem fazer barulho. O jardim tava vazio, só ela ali. Dezessete anos, regador na mão, pé descalço na grama artificial.</p>
-<p>Babel olhou pra cima. Viu quatro olhos vermelhos. Dois em cima, dois embaixo.</p>
-<p>O monstro não rugiu. Ajoelhou na grama pra ficar da altura dela.</p>
-<p>— Me perdoa — ele sussurrou. A voz era de homem levando facada.</p>
-<p>Babel não gritou. Só perguntou: — Você vai me machucar?</p>
-<p>Ele balançou a cabeça. Não. Pegou ela no colo. Não apertou. Segurou como se carrega vidro.</p>
-<p><strong>[...] continua no livro completo</strong></p>
-</div>
-</div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 DualPage. Navegação SPA sem reload. Feito com Tailwind CSS.</p>
+        </div>
+    </footer>
 
 <script>
-function abrirModal(id){
-document.getElementById(id).classList.add('active');
-document.body.style.overflow='hidden';
-}
-function fecharModal(id){
-document.getElementById(id).classList.remove('active');
-document.body.style.overflow='auto';
-}
-function copiarPix(){
-navigator.clipboard.writeText('11825098603');
-alert('Chave Pix copiada: 11825098603');
-}
-document.querySelectorAll('.modal').forEach(m=>{
-m.addEventListener('click',e=>{
-if(e.target===m)fecharModal(m.id)
-})
-})
+    // Estado atual da página
+    let currentPage = 'home';
+    
+    // Função principal de navegação
+    function navigateTo(pageId, pushState = true) {
+        // Esconde todas as páginas
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Mostra a página desejada
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+            currentPage = pageId;
+            
+            // Atualiza URL sem recarregar
+            if (pushState) {
+                const url = pageId === 'home' ? '/' : `#${pageId}`;
+                history.pushState({page: pageId}, '', url);
+            }
+            
+            // Scroll para o topo suavemente
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            
+            // Atualiza classe ativa no nav
+            updateActiveNav(pageId);
+        }
+    }
+    
+    // Atualiza botão ativo na navegação
+    function updateActiveNav(pageId) {
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('text-indigo-600', 'bg-slate-100');
+        });
+        
+        // Adiciona indicador visual se quiser
+    }
+    
+    // Suporte para botão voltar/avançar do navegador
+    window.addEventListener('popstate', (e) => {
+        if (e.state && e.state.page) {
+            navigateTo(e.state.page, false);
+        } else {
+            // Verifica hash na URL
+            const hash = window.location.hash.substring(1);
+            if (hash === 'page2') {
+                navigateTo('page2', false);
+            } else {
+                navigateTo('home', false);
+            }
+        }
+    });
+    
+    // Carrega página inicial baseado na URL
+    window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'page2') {
+            navigateTo('page2', false);
+        } else {
+            history.replaceState({page: 'home'}, '', '/');
+        }
+    });
+    
+    // Atalho: Pressionar 1 ou 2 para navegar
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '1') navigateTo('home');
+        if (e.key === '2') navigateTo('page2');
+    });
 </script>
-
 </body>
 </html>
